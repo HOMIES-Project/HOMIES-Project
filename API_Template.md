@@ -1,21 +1,26 @@
 # HOMIES
 Base Url: `https://dondesesuba.com`
 
-- Login
-1. Endpoint:
+<details >
+    
+Endpoint:
+    
 ```
 /login
 ```
 
-3. Headers:
+Headers:
 ```java
 null
 ```
 
-4. Body:
+Body:
+<summary>Login</summary>
+
 ```json
 {
     "username": "jorge4",
     "password": "123248"
 }
 ```
+</details>
