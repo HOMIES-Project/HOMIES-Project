@@ -1,5 +1,5 @@
 # HOMIES
-Base Url: `https://homies-1854.herokuapp.com/`
+Base Url: `https://homies-1854.herokuapp.com/api`
 
 
 <details>
