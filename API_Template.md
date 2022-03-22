@@ -1,5 +1,5 @@
 # HOMIES
-Base Url: `https://homies-1854.herokuapp.com/api`
+Base Url: `https://dashboard.heroku.com/apps/homies-1854/api`
 
 
 <details>
@@ -194,7 +194,12 @@ text: needed text format, ¡¡¡NOT JSON format!!!
 
 Return OK:
 ```html
-200 key=Rkbx5WPUs5W1JaPY7BcA (example of key return to retrieve password)
+200
+```
+```JSON
+{
+    "reset_key": "Qal1LtXREXjj4hnkH1ZX"
+}
 ```
 
 Return Bad Request:
@@ -205,7 +210,7 @@ Return Bad Request:
 </details>
 
 <details>
-<summary>Apply Reset password</summary>
+<summary>Aply Reset password</summary>
 
 REST access:
 ```java
