@@ -1,5 +1,5 @@
 # HOMIES
-Base Url: `https://homies-1854.herokuapp.com/api`
+Base Url: `https://homies-java-16.herokuapp.com/api`
 
 
 <details>
@@ -25,7 +25,8 @@ Body Requireds:
 {
     "login": "nickName",
     "password": "12345678",
-    "email": "mymail@domain.com"
+    "email": "mymail@domain.com",
+    "langKey": "es"
 }
 ```
 
@@ -35,6 +36,7 @@ Body complete:
     "login": "nickName",
     "password": "12345678",
     "email": "mymail@domain.com",
+    "langKey": "es",
     "firstName":"myName",
     "lastName":"myLastName",
     "langKey":"en"
@@ -54,6 +56,18 @@ langKey => laguagge of user (minLen = 2, maxLen = 10)
 Return OK:
 ```java
 HttpStatus.created() "201"
+```
+
+Email to return new user and activate url for this user:
+```
+Dear user
+
+Your Homies account has been created, please click on the URL below to activate it:
+
+https://homies-1854.herokuapp.com//account/activate?key=N95gRmUHsiUSWVLahqqJ
+
+Regards,
+Homies Team.
 ```
 
 </details>
