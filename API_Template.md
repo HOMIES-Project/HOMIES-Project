@@ -44,7 +44,7 @@ Body complete:
 
 Info fields:
 ```
-login => username (Required, minLen = 1, maxLen = 50)
+login => username (Required, minLen = 4, maxLen = 50)
 password => password (Required, minLen = 8, maxLen = 100)
 email => email (Required, minLen = 8, maxLen = 100)
 fistName => name of user (maxLen = 50)
@@ -100,7 +100,7 @@ Body Requireds:
 
 Info fields:
 ```html
-username => username (Required, minLen = 1, maxLen = 100)
+username => username (Required, minLen = 4, maxLen = 100)
 password => password (Required, minLen = 8, maxLen = 100)
 ```
 
