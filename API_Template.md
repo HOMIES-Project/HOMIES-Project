@@ -198,7 +198,7 @@ Return OK:
 ```
 ```JSON
 {
-    "reset_key": "Qal1LtXREXjj4hnkH1ZX"
+    "key": "Qal1LtXREXjj4hnkH1ZX"
 }
 ```
 
