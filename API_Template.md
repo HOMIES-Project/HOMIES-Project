@@ -38,8 +38,7 @@ Body complete:
     "email": "mymail@domain.com",
     "langKey": "es",
     "firstName":"myName",
-    "lastName":"myLastName",
-    "langKey":"en"
+    "lastName":"myLastName"
 }
 ```
 
