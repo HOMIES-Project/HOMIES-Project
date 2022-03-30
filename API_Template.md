@@ -367,7 +367,7 @@ null
 ```
 
 Info fields:
-
+```text
 Response:
 id => id's group (Autoasigned)
 groupKey => key/password group (Autoasigned)
