@@ -182,13 +182,15 @@ null
 ```
 
 Body Requireds:
-```text
-email@domain.com
+```JSON
+{
+    "email": "email@domain.com"    
+}    
 ```
 
 Info fields:
 ```html
-text: needed text format, ¡¡¡NOT JSON format!!!
+text: Encapsulated in JSON format
 ```
 
 Return OK:
@@ -197,7 +199,7 @@ Return OK:
 ```
 ```JSON
 {
-    "key": "Qal1LtXREXjj4hnkH1ZX"
+    "ACCEPTED"
 }
 ```
 
