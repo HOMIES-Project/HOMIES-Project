@@ -259,7 +259,7 @@ Return Bad Request:
 
 </details>
 
-###
+##
 
 <details>
 <summary>Group's Features</summary>
