@@ -315,25 +315,45 @@ HttpStatus.created() "201"
 Body response:
 ```json
 {
-    "id": 1,
-    "groupKey": "DFnrkv6BK1ynvZTWQq51",
-    "groupName": "grupoPrueba1",
+    "id": 31,
+    "groupKey": "DdsiB9XTHSnpEQyfkFNV",
+    "groupName": "grupoPrueba7",
     "groupRelationName": "esto es un grupo de prueba",
-    "addGroupDate": "2022-03-30",
-    "userData": null,
+    "addGroupDate": "2022-03-31",
     "userAdmin": {
         "id": 1,
-        "photo": "/9j/4AAQSkZJRgABAQEASABIAAD/2wCEAAgICAgJCAkKCgkNDgwODRMREBARExwUFhQWFBwrGx8bGx...",
-        "photoContentType": "image/jpeg",
-        "phone": "666555333",
-        "premium": true,
-        "birthDate": "2022-03-01",
-        "addDate": "2022-03-30"
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAAC/VBMVEUAAADLqqNL...",
+        "photoContentType": "image/png",
+        "phone": "735-497-3310",
+        "premium": false,
+        "birthDate": "2022-01-20",
+        "addDate": "2022-01-21"
     },
     "taskList": {
-        "id": 1,
-        "nameList": "ListagrupoPrueba1"
-    }
+        "id": 31,
+        "nameList": "TKLgrupoPrueba7"
+    },
+    "spendingList": {
+        "id": 31,
+        "total": 0.0,
+        "nameSpendList": "SPL_grupoPrueba7"
+    },
+    "shoppingList": {
+        "id": 31,
+        "total": 0.0,
+        "nameShopList": "SHLgrupoPrueba7"
+    },
+    "settingsList": {
+        "id": 31,
+        "settingOne": false,
+        "settingTwo": false,
+        "settingThree": false,
+        "settingFour": false,
+        "settingFive": false,
+        "settingSix": false,
+        "settingSeven": false
+    },
+    "userData": null
 }
 ```
 
@@ -386,25 +406,45 @@ Body response:
 ```json
 [
     {
-        "id": 1,
-        "groupKey": "DFnrkv6BK1ynvZTWQq51",
-        "groupName": "grupoPrueba1",
+        "id": 31,
+        "groupKey": "DdsiB9XTHSnpEQyfkFNV",
+        "groupName": "grupoPrueba7",
         "groupRelationName": "esto es un grupo de prueba",
-        "addGroupDate": "2022-03-30",
-        "userData": null,
+        "addGroupDate": "2022-03-31",
         "userAdmin": {
             "id": 1,
-            "photo": "/9j/4AAQSkZJRgABAQEASABIAAD/2wCEAAgICAgJCAkKCgkNDgwODRMREBA...",
-            "photoContentType": "image/jpeg",
-            "phone": "666555333",
-            "premium": true,
-            "birthDate": "2022-03-01",
-            "addDate": "2022-03-30"
+            "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAAC/VBMVEUAAADLqqNL...",
+            "photoContentType": "image/png",
+            "phone": "735-497-3310",
+            "premium": false,
+            "birthDate": "2022-01-20",
+            "addDate": "2022-01-21"
         },
         "taskList": {
-            "id": 1,
-            "nameList": "ListagrupoPrueba1"
-        }
+            "id": 31,
+            "nameList": "TKLgrupoPrueba7"
+        },
+        "spendingList": {
+            "id": 31,
+            "total": 0.0,
+            "nameSpendList": "SPL_grupoPrueba7"
+        },
+        "shoppingList": {
+            "id": 31,
+            "total": 0.0,
+            "nameShopList": "SHLgrupoPrueba7"
+        },
+        "settingsList": {
+            "id": 31,
+            "settingOne": false,
+            "settingTwo": false,
+            "settingThree": false,
+            "settingFour": false,
+            "settingFive": false,
+            "settingSix": false,
+            "settingSeven": false
+        },
+        "userData": null
     }
 ]
 ```
