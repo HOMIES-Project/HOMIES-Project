@@ -257,6 +257,115 @@ Return Bad Request:
 
 </details>
 
+<details>
+<summary>View userData</summary>
+
+REST access:
+```java
+@GetMapping
+```
+
+EndPoint:
+```
+/user-data
+```
+
+Header:
+```java
+null
+```
+
+Body Requireds:
+```URL
+/user-data/1 
+```
+
+Info fields:
+```text
+/user-data/1 => example for displaying user 1 from the /user-data endpoint
+- Here you can see information about which user this information is linked to, and which groups it belongs to with their corresponding objects.
+```
+
+Return OK:
+```html
+200
+```
+```JSON
+{
+    "id": 1,
+    "photo": null,
+    "photoContentType": null,
+    "phone": null,
+    "premium": false,
+    "birthDate": null,
+    "addDate": null,
+    "user": {
+        "id": 1,
+        "login": "admin",
+        "firstName": "Administrator",
+        "lastName": "Administrator",
+        "email": "homies_app@outlook.com",
+        "activated": true,
+        "langKey": "en",
+        "imageUrl": "",
+        "resetDate": null
+    },
+    "adminGroups": null,
+    "taskAsigneds": [],
+    "productCreateds": null,
+    "groups": [
+        {
+            "id": 1,
+            "groupKey": "jW63X27cAMnELzdNY1gr",
+            "groupName": "grupoPrueba1",
+            "groupRelationName": "esto es un grupo de prueba",
+            "addGroupDate": "2022-04-01",
+            "userAdmin": {
+                "id": 1,
+                "photo": null,
+                "photoContentType": null,
+                "phone": null,
+                "premium": false,
+                "birthDate": null,
+                "addDate": null
+            },
+            "taskList": {
+                "id": 1,
+                "nameList": "TKLgrupoPrueba1"
+            },
+            "spendingList": {
+                "id": 1,
+                "total": 0.0,
+                "nameSpendList": "SPL_grupoPrueba1"
+            },
+            "shoppingList": {
+                "id": 1,
+                "total": 0.0,
+                "nameShopList": "SHLgrupoPrueba1"
+            },
+            "settingsList": {
+                "id": 1,
+                "settingOne": false,
+                "settingTwo": false,
+                "settingThree": false,
+                "settingFour": false,
+                "settingFive": false,
+                "settingSix": false,
+                "settingSeven": false
+            },
+            "userData": null
+        }
+    ]
+}
+```
+
+Return Bad Request:
+```html
+404 title: NOT_FOUND
+```
+
+</details>
+
 </details>
 
 ##
@@ -315,45 +424,25 @@ HttpStatus.created() "201"
 Body response:
 ```json
 {
-    "id": 31,
-    "groupKey": "DdsiB9XTHSnpEQyfkFNV",
-    "groupName": "grupoPrueba7",
+    "id": 1,
+    "groupKey": "DFnrkv6BK1ynvZTWQq51",
+    "groupName": "grupoPrueba1",
     "groupRelationName": "esto es un grupo de prueba",
-    "addGroupDate": "2022-03-31",
+    "addGroupDate": "2022-03-30",
+    "userData": null,
     "userAdmin": {
         "id": 1,
-        "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAAC/VBMVEUAAADLqqNL...",
-        "photoContentType": "image/png",
-        "phone": "735-497-3310",
-        "premium": false,
-        "birthDate": "2022-01-20",
-        "addDate": "2022-01-21"
+        "photo": "/9j/4AAQSkZJRgABAQEASABIAAD/2wCEAAgICAgJCAkKCgkNDgwODRMREBARExwUFhQWFBwrGx8bGx...",
+        "photoContentType": "image/jpeg",
+        "phone": "666555333",
+        "premium": true,
+        "birthDate": "2022-03-01",
+        "addDate": "2022-03-30"
     },
     "taskList": {
-        "id": 31,
-        "nameList": "TKLgrupoPrueba7"
-    },
-    "spendingList": {
-        "id": 31,
-        "total": 0.0,
-        "nameSpendList": "SPL_grupoPrueba7"
-    },
-    "shoppingList": {
-        "id": 31,
-        "total": 0.0,
-        "nameShopList": "SHLgrupoPrueba7"
-    },
-    "settingsList": {
-        "id": 31,
-        "settingOne": false,
-        "settingTwo": false,
-        "settingThree": false,
-        "settingFour": false,
-        "settingFive": false,
-        "settingSix": false,
-        "settingSeven": false
-    },
-    "userData": null
+        "id": 1,
+        "nameList": "ListagrupoPrueba1"
+    }
 }
 ```
 
@@ -406,45 +495,25 @@ Body response:
 ```json
 [
     {
-        "id": 31,
-        "groupKey": "DdsiB9XTHSnpEQyfkFNV",
-        "groupName": "grupoPrueba7",
+        "id": 1,
+        "groupKey": "DFnrkv6BK1ynvZTWQq51",
+        "groupName": "grupoPrueba1",
         "groupRelationName": "esto es un grupo de prueba",
-        "addGroupDate": "2022-03-31",
+        "addGroupDate": "2022-03-30",
+        "userData": null,
         "userAdmin": {
             "id": 1,
-            "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAAC/VBMVEUAAADLqqNL...",
-            "photoContentType": "image/png",
-            "phone": "735-497-3310",
-            "premium": false,
-            "birthDate": "2022-01-20",
-            "addDate": "2022-01-21"
+            "photo": "/9j/4AAQSkZJRgABAQEASABIAAD/2wCEAAgICAgJCAkKCgkNDgwODRMREBA...",
+            "photoContentType": "image/jpeg",
+            "phone": "666555333",
+            "premium": true,
+            "birthDate": "2022-03-01",
+            "addDate": "2022-03-30"
         },
         "taskList": {
-            "id": 31,
-            "nameList": "TKLgrupoPrueba7"
-        },
-        "spendingList": {
-            "id": 31,
-            "total": 0.0,
-            "nameSpendList": "SPL_grupoPrueba7"
-        },
-        "shoppingList": {
-            "id": 31,
-            "total": 0.0,
-            "nameShopList": "SHLgrupoPrueba7"
-        },
-        "settingsList": {
-            "id": 31,
-            "settingOne": false,
-            "settingTwo": false,
-            "settingThree": false,
-            "settingFour": false,
-            "settingFive": false,
-            "settingSix": false,
-            "settingSeven": false
-        },
-        "userData": null
+            "id": 1,
+            "nameList": "ListagrupoPrueba1"
+        }
     }
 ]
 ```
