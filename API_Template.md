@@ -1,9 +1,14 @@
 # HOMIES
-Base Url: `https://homies-back-app.herokuapp.com/api`
 
+<br>
+#### Base Url: `https://homies-back-app.herokuapp.com/api`
 
-<details>
-<summary>User's Features</summary>
+<br>
+
+<details> 
+<summary><strong>User's Features *NEWS</strong></summary> 
+
+<br>
 
 <details>
 <summary>Register</summary>
@@ -76,7 +81,12 @@ Homies Team.
 
 
 <details>
-<summary>Login</summary>
+<summary>Login *EDITED</summary>
+
+NEW
+```text
+*The user id is now returned together with the token.
+```
 
 REST access:
 ```java
@@ -93,6 +103,14 @@ Header:
 null
 ```
 
+Info fields:
+```html
+username => username (Required, minLen = 4, maxLen = 100)
+password => password (Required, minLen = 8, maxLen = 100)
+id_token => token for user authenticate on all request
+id       => id of user
+```
+
 Body Requireds:
 ```json
 {
@@ -101,17 +119,21 @@ Body Requireds:
 }
 ```
 
-Info fields:
-```html
-username => username (Required, minLen = 4, maxLen = 100)
-password => password (Required, minLen = 8, maxLen = 100)
-```
-
 Return OK:
+```java
+HttpStatus.OK() "200"
+```
 ```json
 {
-    "id_token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY0NzcxNTU1N30.rCu8qK61uRQvJVJpZ2RRe_3Qizdjr9DL4EBMQnYaD-np94qEFV5rcNV0Q0279xMkLZq86w5k_GqJbhC1C_NKmA"
+    "id_token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJlc3RoZXIxMyIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NDg5NjY0NDN9.83t23mWPs0J2acZL88TxQCKd3uu-Tooi1T9_1-zCpE0FQ-mANWLVQBMovz1w5kotfvMFIO61zjHEA9rsaZFI6A",
+    "id": 4
 }
+```
+
+Return ERROR:
+```java
+HttpStatus.Unauthorized() "401"
+HttpStatus.Bad_Request() "405"
 ```
 
 </details>
@@ -258,7 +280,12 @@ Return Bad Request:
 </details>
 
 <details>
-<summary>View userData</summary>
+<summary>View userData *EDITED</summary>
+
+NEW
+```text
+*The groups to which the user belongs can now be retrieved.
+```
 
 REST access:
 ```java
@@ -282,7 +309,7 @@ Body Requireds:
 
 Info fields:
 ```text
-/user-data/1 => example for displaying user 1 from the /user-data endpoint
+~/user-data/1 => example for displaying user 1 from the /user-data endpoint
 - Here you can see information about which user this information is linked to, and which groups it belongs to with their corresponding objects.
 ```
 
@@ -353,7 +380,16 @@ Return OK:
                 "settingSix": false,
                 "settingSeven": false
             },
-            "userData": null
+            "userData": [
+                {
+                    "id": 1,
+                    "photo": null,
+                    "photoContentType": null,
+                    "phone": null,
+                    "premium": false,
+                    "birthDate": null,
+                    "addDate": null
+                }
         }
     ]
 }
@@ -366,15 +402,67 @@ Return Bad Request:
 
 </details>
 
+<details>
+<summary>Delete User *NEW</summary>
+
+REST access:
+```java
+@DeleteMapping
+```
+
+EndPoint:
+```
+/api/user-data/x
+```
+
+Header:
+```java
+null
+```
+
+Info fields:
+```html
+x  => x is the id of the user to delete
+```
+
+Body Requireds:
+```java
+null
+```
+
+Return OK:
+```java
+HttpStatus.No Content() "204"
+```
+
+Return ERROR:
+```java
+HttpStatus.Unauthorized() "401"
+HttpStatus.Bad_Request() "405"
+```
 </details>
 
-##
+</details>
+
+<br>
 
 <details>
-<summary>Group's Features</summary>
+<summary><strong>Group's Features</strong></summary>
+
+<br>
 
 <details>
-<summary>Create new Group</summary>
+<summary>Create new Group *NEW & ERROR</summary>
+
+ERROR
+```text
+Please, Do not use.
+```
+
+NEW
+```text
+Now all the lists of the group and the users that are part of it are returned (Only user who created the group).
+```
 
 REST access:
 ```java
@@ -425,24 +513,46 @@ Body response:
 ```json
 {
     "id": 1,
-    "groupKey": "DFnrkv6BK1ynvZTWQq51",
-    "groupName": "grupoPrueba1",
-    "groupRelationName": "esto es un grupo de prueba",
-    "addGroupDate": "2022-03-30",
-    "userData": null,
-    "userAdmin": {
-        "id": 1,
-        "photo": "/9j/4AAQSkZJRgABAQEASABIAAD/2wCEAAgICAgJCAkKCgkNDgwODRMREBARExwUFhQWFBwrGx8bGx...",
-        "photoContentType": "image/jpeg",
-        "phone": "666555333",
-        "premium": true,
-        "birthDate": "2022-03-01",
-        "addDate": "2022-03-30"
-    },
+    "groupKey": "Tunisian payment",
+    "groupName": "South",
+    "groupRelationName": "explicit white",
+    "addGroupDate": "2022-03-07",
+    "userAdmin": null,
     "taskList": {
         "id": 1,
-        "nameList": "ListagrupoPrueba1"
-    }
+        "nameList": "New"
+    },
+    "spendingList": {
+        "id": 1,
+        "total": 34472.0,
+        "nameSpendList": "background"
+    },
+    "shoppingList": {
+        "id": 1,
+        "total": 90762.0,
+        "nameShopList": "Towels Designer Jord"
+    },
+    "settingsList": {
+        "id": 1,
+        "settingOne": true,
+        "settingTwo": false,
+        "settingThree": false,
+        "settingFour": false,
+        "settingFive": true,
+        "settingSix": false,
+        "settingSeven": true
+    },
+    "userData": [
+        {
+            "id": 2,
+            "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAAC/VBMVEUAAA...",
+            "photoContentType": "image/png",
+            "phone": "1-555-408-2298 x3208",
+            "premium": false,
+            "birthDate": "2022-01-21",
+            "addDate": "2022-01-21"
+        }
+    ]
 }
 ```
 
@@ -453,7 +563,12 @@ HttpStatus.created() "400" //*por definir
 </details>
 
 <details>
-<summary>Get all Groups</summary>
+<summary>Get all Groups *EDITED</summary>
+
+NEW
+```text
+Now all the lists of the group and the users that are part of it are returned.
+```
 
 REST access:
 ```java
@@ -496,26 +611,101 @@ Body response:
 [
     {
         "id": 1,
-        "groupKey": "DFnrkv6BK1ynvZTWQq51",
-        "groupName": "grupoPrueba1",
-        "groupRelationName": "esto es un grupo de prueba",
-        "addGroupDate": "2022-03-30",
-        "userData": null,
-        "userAdmin": {
-            "id": 1,
-            "photo": "/9j/4AAQSkZJRgABAQEASABIAAD/2wCEAAgICAgJCAkKCgkNDgwODRMREBA...",
-            "photoContentType": "image/jpeg",
-            "phone": "666555333",
-            "premium": true,
-            "birthDate": "2022-03-01",
-            "addDate": "2022-03-30"
-        },
+        "groupKey": "Tunisian payment",
+        "groupName": "South",
+        "groupRelationName": "explicit white",
+        "addGroupDate": "2022-03-07",
+        "userAdmin": null,
         "taskList": {
             "id": 1,
-            "nameList": "ListagrupoPrueba1"
-        }
-    }
-]
+            "nameList": "New"
+        },
+        "spendingList": {
+            "id": 1,
+            "total": 34472.0,
+            "nameSpendList": "background"
+        },
+        "shoppingList": {
+            "id": 1,
+            "total": 90762.0,
+            "nameShopList": "Towels Designer Jord"
+        },
+        "settingsList": {
+            "id": 1,
+            "settingOne": true,
+            "settingTwo": false,
+            "settingThree": false,
+            "settingFour": false,
+            "settingFive": true,
+            "settingSix": false,
+            "settingSeven": true
+        },
+        "userData": [
+            {
+                "id": 2,
+                "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAAC/VBMVEUAAADLqqNLVm...",
+                "photoContentType": "image/png",
+                "phone": "1-555-408-2298 x3208",
+                "premium": false,
+                "birthDate": "2022-01-21",
+                "addDate": "2022-01-21"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "groupKey": "info-mediaries matrix disintermediate",
+        "groupName": "Savings Chair",
+        "groupRelationName": "transmit",
+        "addGroupDate": "2022-03-08",
+        "userAdmin": null,
+        "taskList": {
+            "id": 2,
+            "nameList": "analyzing"
+        },
+        "spendingList": {
+            "id": 2,
+            "total": 83853.0,
+            "nameSpendList": "efficient XSS Soap"
+        },
+        "shoppingList": {
+            "id": 2,
+            "total": 53135.0,
+            "nameShopList": "bypassing connect Mo"
+        },
+        "settingsList": {
+            "id": 2,
+            "settingOne": true,
+            "settingTwo": false,
+            "settingThree": false,
+            "settingFour": true,
+            "settingFive": true,
+            "settingSix": true,
+            "settingSeven": false
+        },
+        "userData": [
+            {
+                "id": 2,
+                "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAAC/VBMVEUAAADLqqNLVmy...",
+                "photoContentType": "image/png",
+                "phone": "1-555-408-2298 x3208",
+                "premium": false,
+                "birthDate": "2022-01-21",
+                "addDate": "2022-01-21"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "groupKey": "Tasty client-driven Robust",
+        "groupName": "Boliviano high-level moratorium",
+        "groupRelationName": "orchid Car",
+        "addGroupDate": "2022-03-08",
+        "userAdmin": null,
+        "taskList": {
+            "id": 3,
+            "nameList": "Berkshire Developer"
+        } ...
 ```
 
 Return Bad Request:
