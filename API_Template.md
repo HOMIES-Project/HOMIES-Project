@@ -453,12 +453,7 @@ HttpStatus.Bad_Request() "405"
 <br>
 
 <details>
-<summary>Create new Group *NEW & ERROR</summary>
-
-ERROR
-```text
-Please, Do not use.
-```
+<summary>Create new Group *NEW</summary>
 
 NEW
 ```text
