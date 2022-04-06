@@ -1,13 +1,17 @@
-# HOMIES
+# HOMIES API
+<p>✨ => NEW</p> 
+<p>🛠️ => EDITED</p>
+<p>❌ => ERROR</p>
+<p>(❌🛠️) => REPAIRING </p>
+<p>🗑️ => DELETE</p>
 
-<br>
 
 #### Base Url: `https://homies-back-app.herokuapp.com/api`
 
 <br>
 
 <details> 
-<summary><strong>User's Features *NEWS</strong></summary> 
+<summary><strong>User's Features ✨🛠️</strong></summary>
 
 <br>
 
@@ -78,16 +82,17 @@ Regards,
 Homies Team.
 ```
 
+Return Error: 
+```java
+HttpStatus.Unauthorized() "401"
+HttpStatus.Bad_Request() "405"
+```
+
 </details>
 
 
 <details>
-<summary>Login *EDITED</summary>
-
-NEW
-```text
-*The user id is now returned together with the token.
-```
+<summary>Login</summary>
 
 REST access:
 ```java
@@ -178,13 +183,13 @@ need Authentication: "Bearer " + token
 ```
 
 Return OK:
-```html
-200
+```java
+HttpStatus.OK() "200"
 ```
 
 Return Bad Request:
-```html
-400 title: Incorrect password
+```java
+HttpStatus.BadRequest() "400" "Incorrect password"
 ```
 
 </details>
@@ -220,8 +225,8 @@ text: Encapsulated in JSON format
 ```
 
 Return OK:
-```html
-200
+```java
+HttpStatus.OK() "200"
 ```
 ```JSON
 {
@@ -230,6 +235,10 @@ Return OK:
 ```
 
 Return Bad Request:
+Return Error: 
+```java
+HttpStatus.Bad_Request() "400"
+```
 ```html
 400 title: Password reset requested for non existing mail!
 ```
@@ -269,23 +278,23 @@ newPassword => newPassword (Required, minLen = 8, maxLen = 100)
 ```
 
 Return OK:
-```html
-200
+```java
+HttpStatus.OK() "200"
 ```
 
 Return Bad Request:
-```html
-400 title: Incorrect password
+```java
+HttpStatus.BadRequest() "400" "Incorrect password"
 ```
 
 </details>
 
 <details>
-<summary>View userData *EDITED</summary>
+<summary>View userData 🛠️</summary>
 
 NEW
 ```text
-*The groups to which the user belongs can now be retrieved.
+*The groups that the user administers, their tasks, created products and the groups they are in are now displayed.
 ```
 
 REST access:
@@ -315,82 +324,101 @@ Info fields:
 ```
 
 Return OK:
-```html
-200
+```java
+HttpStatus.OK() "200"
 ```
 ```JSON
 {
-    "id": 1,
-    "photo": null,
-    "photoContentType": null,
-    "phone": null,
+    "id": 4,
+    "photo": "iVBORw0KGgoAAAANSUhEUgAAAMA...",
+    "photoContentType": "image/png",
+    "phone": "999888777",
     "premium": false,
     "birthDate": null,
     "addDate": null,
     "user": {
-        "id": 1,
-        "login": "admin",
-        "firstName": "Administrator",
-        "lastName": "Administrator",
-        "email": "homies_app@outlook.com",
+        "id": 4,
+        "login": "yorch7777",
+        "firstName": "Agulló",
+        "lastName": "Agulló",
+        "email": "re227editado@hotmail.com",
         "activated": true,
         "langKey": "en",
-        "imageUrl": "",
-        "resetDate": null
+        "imageUrl": null,
+        "resetDate": "2022-04-05T05:50:48Z"
     },
-    "adminGroups": null,
+    "adminGroups": [],
     "taskAsigneds": [],
-    "productCreateds": null,
+    "productCreateds": [],
     "groups": [
         {
             "id": 1,
-            "groupKey": "jW63X27cAMnELzdNY1gr",
-            "groupName": "grupoPrueba1",
-            "groupRelationName": "esto es un grupo de prueba",
-            "addGroupDate": "2022-04-01",
+            "groupKey": "Tunisian payment",
+            "groupName": "South",
+            "groupRelationName": "explicit white",
+            "addGroupDate": "2022-03-07",
             "userAdmin": {
-                "id": 1,
-                "photo": null,
-                "photoContentType": null,
-                "phone": null,
+                "id": 2,
+                "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAA...",
+                "photoContentType": "image/png",
+                "phone": "1-555-408-2298 x3208",
                 "premium": false,
-                "birthDate": null,
-                "addDate": null
+                "birthDate": "2022-01-21",
+                "addDate": "2022-01-21"
             },
             "taskList": {
                 "id": 1,
-                "nameList": "TKLgrupoPrueba1"
+                "nameList": "New"
             },
             "spendingList": {
                 "id": 1,
-                "total": 0.0,
-                "nameSpendList": "SPL_grupoPrueba1"
+                "total": 34472.0,
+                "nameSpendList": "background"
             },
             "shoppingList": {
                 "id": 1,
-                "total": 0.0,
-                "nameShopList": "SHLgrupoPrueba1"
+                "total": 90762.0,
+                "nameShopList": "Towels Designer Jord"
             },
             "settingsList": {
                 "id": 1,
-                "settingOne": false,
+                "settingOne": true,
                 "settingTwo": false,
                 "settingThree": false,
                 "settingFour": false,
-                "settingFive": false,
+                "settingFive": true,
                 "settingSix": false,
-                "settingSeven": false
+                "settingSeven": true
             },
             "userData": [
                 {
-                    "id": 1,
+                    "id": 2,
+                    "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMA...",
+                    "photoContentType": "image/png",
+                    "phone": "999888777",
+                    "premium": false,
+                    "birthDate": null,
+                    "addDate": null
+                },
+                {
+                    "id": 5,
                     "photo": null,
                     "photoContentType": null,
                     "phone": null,
                     "premium": false,
                     "birthDate": null,
-                    "addDate": null
+                    "addDate": "2022-04-05"
+                },
+                {
+                    "id": 6,
+                    "photo": null,
+                    "photoContentType": null,
+                    "phone": null,
+                    "premium": false,
+                    "birthDate": null,
+                    "addDate": "2022-04-05"
                 }
+            ]
         }
     ]
 }
@@ -404,7 +432,12 @@ Return Bad Request:
 </details>
 
 <details>
-<summary>Delete User *NEW</summary>
+<summary>Delete User (❌🛠️)</summary>
+
+ERROR:
+```text
+❌It is not possible to delete users who have relationships with other entities. 
+```
 
 REST access:
 ```java
@@ -443,21 +476,247 @@ HttpStatus.Bad_Request() "405"
 ```
 </details>
 
-</details>
-
-<br>
-
 <details>
-<summary><strong>Group's Features</strong></summary>
-
-<br>
-
-<details>
-<summary>Create new Group *NEW</summary>
+<summary>Re-send activated email✨</summary>
 
 NEW
 ```text
-Now all the lists of the group and the users that are part of it are returned (Only user who created the group).
+The user can request the activation email again.
+```
+
+REST access:
+```java
+@PostMapping
+```
+
+EndPoint:
+```
+/account/reset-password/email
+```
+
+Header:
+```java
+null
+```
+
+Body Requireds:
+```JSON
+{
+    "email": "email@domain.com"    
+}    
+```
+
+Info fields:
+```html
+text: Encapsulated in JSON format
+```
+
+Return OK:
+```java
+HttpStatus.ResetContent() "205" 
+```
+
+Return Bad Request:
+Return Error: 
+```java
+HttpStatus.Bad_Request() "500"
+```
+```html
+500 "detail": "No value present"
+```
+
+</details>
+
+<details>
+<summary>Edit user data✨</summary>
+
+NEW
+```text
+The user can change his data.
+```
+
+REST access:
+```java
+@PostMapping
+```
+
+EndPoint:
+```
+/account/reset-password/user-data/x
+```
+
+Header:
+```java
+null
+```
+
+Body Requireds:
+```JSON
+{
+    "login": "Yorch7",
+    "firstName": "Jorge",
+    "lastName": "Agulló",
+    "email": "re227editado@hotmail.com",
+    "langKey": "en",
+    "phone": 999888777,
+    "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAA...",
+    "photoContentType": "image/png",
+    "birthDate": "1985-11-16T05:50:48Z"
+}   
+```
+
+Info fields:
+```html
+x => user's id
+login => user's name
+firstName => real user's name
+lastName => real user's lastName
+email => user's email
+langKey => user's language
+phone => user's phone
+photo => user's photo
+photoContentType => photo's format
+birthDate => user's birth day
+```
+
+Return OK:
+```java
+HttpStatus.Ok() "200" 
+```
+```json
+{
+    "id": 4,
+    "photo": null,
+    "photoContentType": "image/png",
+    "phone": "999888777",
+    "premium": false,
+    "birthDate": null,
+    "addDate": null,
+    "user": {
+        "id": 4,
+        "login": "yorch27",
+        "firstName": "Jorge",
+        "lastName": "Agulló",
+        "email": "re22788editado@hotmail.com",
+        "activated": true,
+        "langKey": "en",
+        "imageUrl": null,
+        "resetDate": "2022-04-05T05:50:48Z"
+    },
+    "adminGroups": [],
+    "taskAsigneds": [],
+    "productCreateds": [],
+    "groups": [
+        {
+            "id": 1,
+            "groupKey": "Tunisian payment",
+            "groupName": "South",
+            "groupRelationName": "explicit white",
+            "addGroupDate": "2022-03-07",
+            "userAdmin": {
+                "id": 2,
+                "photo": "iVBORw0KGgoAAAANSUhEUgAAA...",
+                "photoContentType": "image/png",
+                "phone": "1-555-408-2298 x3208",
+                "premium": false,
+                "birthDate": "2022-01-21",
+                "addDate": "2022-01-21"
+            },
+            "taskList": {
+                "id": 1,
+                "nameList": "New"
+            },
+            "spendingList": {
+                "id": 1,
+                "total": 34472.0,
+                "nameSpendList": "background"
+            },
+            "shoppingList": {
+                "id": 1,
+                "total": 90762.0,
+                "nameShopList": "Towels Designer Jord"
+            },
+            "settingsList": {
+                "id": 1,
+                "settingOne": true,
+                "settingTwo": false,
+                "settingThree": false,
+                "settingFour": false,
+                "settingFive": true,
+                "settingSix": false,
+                "settingSeven": true
+            },
+            "userData": [
+                {
+                    "id": 2,
+                    "photo": "iVBORw0KGgoAAAANSUhEUgAAA...",
+                    "photoContentType": "image/png",
+                    "phone": "1-555-408-2298 x3208",
+                    "premium": false,
+                    "birthDate": "2022-01-21",
+                    "addDate": "2022-01-21"
+                },
+                {
+                    "id": 4,
+                    "photo": null,
+                    "photoContentType": "image/png",
+                    "phone": "999888777",
+                    "premium": false,
+                    "birthDate": null,
+                    "addDate": null
+                },
+                {
+                    "id": 5,
+                    "photo": null,
+                    "photoContentType": null,
+                    "phone": null,
+                    "premium": false,
+                    "birthDate": null,
+                    "addDate": "2022-04-05"
+                },
+                {
+                    "id": 6,
+                    "photo": null,
+                    "photoContentType": null,
+                    "phone": null,
+                    "premium": false,
+                    "birthDate": null,
+                    "addDate": "2022-04-05"
+                }
+            ]
+        }
+    ]
+}
+```
+
+Return Bad Request:
+Return Error: 
+```java
+HttpStatus.Bad_Request() "500"
+```
+```html
+500 "detail": "No value present"
+```
+
+</details>
+
+</details>
+
+
+
+<br>
+
+<details>
+<summary><strong>Group's Features✨🛠️</strong></summary>
+
+<br>
+
+<details>
+<summary>Create new Group 🛠️</summary>
+
+NEW
+```text
+It is now possible to use
 ```
 
 REST access:
@@ -559,12 +818,7 @@ HttpStatus.created() "400" //*por definir
 </details>
 
 <details>
-<summary>Get all Groups *EDITED</summary>
-
-NEW
-```text
-Now all the lists of the group and the users that are part of it are returned.
-```
+<summary>Get all Groups</summary>
 
 REST access:
 ```java
@@ -707,6 +961,365 @@ Body response:
 Return Bad Request:
 ```java
 HttpStatus.created() "400" //*por definir
+```
+</details>
+
+<details>
+<summary>Add user to the group✨</summary>
+
+ ❗ It can only be exercised by the owner of the group
+
+REST access:
+```java
+@PostMapping
+```
+
+EndPoint:
+```
+/api/groups/add-user
+```
+
+Header:
+```java
+null
+```
+
+Info fields:
+```html
+idAdminGroup  => userAdmin's id, owner of group
+login => userName of new user to be added (it is possible to change it to use the id, ¿yes?)
+idGroup => group's id
+```
+
+Body Requireds:
+```json
+{
+    "idAdminGroup": "8",
+    "login": "newUserName",
+    "idGroup": "1"
+}
+```
+
+Return OK:
+```java
+HttpStatus.Ok() "200"
+```
+```json
+{
+    "id": 1,
+    "groupKey": "Tunisian payment",
+    "groupName": "South",
+    "groupRelationName": "explicit white",
+    "addGroupDate": "2022-03-07",
+    "userAdmin": {
+        "id": 2,
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAAD...",
+        "photoContentType": "image/png",
+        "phone": "1-555-408-2298 x3208",
+        "premium": false,
+        "birthDate": "2022-01-21",
+        "addDate": "2022-01-21"
+    },
+    "taskList": {
+        "id": 1,
+        "nameList": "New"
+    },
+    "spendingList": {
+        "id": 1,
+        "total": 34472.0,
+        "nameSpendList": "background"
+    },
+    "shoppingList": {
+        "id": 1,
+        "total": 90762.0,
+        "nameShopList": "Towels Designer Jord"
+    },
+    "settingsList": {
+        "id": 1,
+        "settingOne": true,
+        "settingTwo": false,
+        "settingThree": false,
+        "settingFour": false,
+        "settingFive": true,
+        "settingSix": false,
+        "settingSeven": true
+    },
+    "userData": [
+        {
+            "id": 2,
+            "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAA...",
+            "photoContentType": "image/png",
+            "phone": "999888777",
+            "premium": false,
+            "birthDate": null,
+            "addDate": null
+        },
+        {
+            "id": 5,
+            "photo": null,
+            "photoContentType": null,
+            "phone": null,
+            "premium": false,
+            "birthDate": null,
+            "addDate": "2022-04-05"
+        },
+        {
+            "id": 6,
+            "photo": null,
+            "photoContentType": null,
+            "phone": null,
+            "premium": false,
+            "birthDate": null,
+            "addDate": "2022-04-05"
+        }
+    ]
+}
+```
+
+Return ERROR:
+```java
+HttpStatus.Unauthorized() "401"
+HttpStatus.Bad_Request() "405"
+```
+</details>
+
+<details>
+<summary>Delete user of group✨</summary>
+
+ ❗❗❗ Improving performance
+ ❗ It can only be exercised by the owner of the group
+ ❗ Remove the user from the group, and allow the administrator to leave the group by passing ownership to another user in teh group, if any.
+
+REST access:
+```java
+@PostMapping
+```
+
+EndPoint:
+```
+/api/groups/delete-user
+```
+
+Header:
+```java
+null
+```
+
+Info fields:
+```html
+idAdminGroup  => userAdmin's id, owner of group
+login => userName of new user to be added (it is possible to change it to use the id, ¿yes?)
+idGroup => group's id
+```
+
+Body Requireds:
+```json
+{
+    "idAdminGroup": "8",
+    "login": "newUserName",
+    "idGroup": "1"
+}
+```
+
+Return OK:
+```java
+HttpStatus.No Content() "204"
+```
+```json
+{
+    "id": 1,
+    "groupKey": "Tunisian payment",
+    "groupName": "South",
+    "groupRelationName": "explicit white",
+    "addGroupDate": "2022-03-07",
+    "userAdmin": {
+        "id": 2,
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAAD...",
+        "photoContentType": "image/png",
+        "phone": "1-555-408-2298 x3208",
+        "premium": false,
+        "birthDate": "2022-01-21",
+        "addDate": "2022-01-21"
+    },
+    "taskList": {
+        "id": 1,
+        "nameList": "New"
+    },
+    "spendingList": {
+        "id": 1,
+        "total": 34472.0,
+        "nameSpendList": "background"
+    },
+    "shoppingList": {
+        "id": 1,
+        "total": 90762.0,
+        "nameShopList": "Towels Designer Jord"
+    },
+    "settingsList": {
+        "id": 1,
+        "settingOne": true,
+        "settingTwo": false,
+        "settingThree": false,
+        "settingFour": false,
+        "settingFive": true,
+        "settingSix": false,
+        "settingSeven": true
+    },
+    "userData": [
+        {
+            "id": 2,
+            "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAA...",
+            "photoContentType": "image/png",
+            "phone": "999888777",
+            "premium": false,
+            "birthDate": null,
+            "addDate": null
+        },
+        {
+            "id": 5,
+            "photo": null,
+            "photoContentType": null,
+            "phone": null,
+            "premium": false,
+            "birthDate": null,
+            "addDate": "2022-04-05"
+        },
+        {
+            "id": 6,
+            "photo": null,
+            "photoContentType": null,
+            "phone": null,
+            "premium": false,
+            "birthDate": null,
+            "addDate": "2022-04-05"
+        }
+    ]
+}
+```
+
+Return ERROR:
+```java
+HttpStatus.Unauthorized() "401"
+HttpStatus.Bad_Request() "405"
+```
+</details>
+
+<details>
+<summary>Change group administrator✨</summary>
+
+ ❗ It can only be exercised by the owner of the group
+
+REST access:
+```java
+@PostMapping
+```
+
+EndPoint:
+```
+/api/groups/change-admin
+```
+
+Header:
+```java
+null
+```
+
+Info fields:
+```html
+idAdminGroup  => userAdmin's id, owner of group
+login => administrator's userName of new group (it is possible to change it to use the id, ¿yes?)
+idGroup => group's id
+```
+
+Body Requireds:
+```json
+{
+    "idAdminGroup": "8",
+    "login": "newUserName",
+    "idGroup": "1"
+}
+```
+
+Return OK:
+```java
+HttpStatus.Ok() "200"
+```
+```json
+{
+    "id": 1,
+    "groupKey": "Tunisian payment",
+    "groupName": "South",
+    "groupRelationName": "explicit white",
+    "addGroupDate": "2022-03-07",
+    "userAdmin": {
+        "id": 2,
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAAD...",
+        "photoContentType": "image/png",
+        "phone": "1-555-408-2298 x3208",
+        "premium": false,
+        "birthDate": "2022-01-21",
+        "addDate": "2022-01-21"
+    },
+    "taskList": {
+        "id": 1,
+        "nameList": "New"
+    },
+    "spendingList": {
+        "id": 1,
+        "total": 34472.0,
+        "nameSpendList": "background"
+    },
+    "shoppingList": {
+        "id": 1,
+        "total": 90762.0,
+        "nameShopList": "Towels Designer Jord"
+    },
+    "settingsList": {
+        "id": 1,
+        "settingOne": true,
+        "settingTwo": false,
+        "settingThree": false,
+        "settingFour": false,
+        "settingFive": true,
+        "settingSix": false,
+        "settingSeven": true
+    },
+    "userData": [
+        {
+            "id": 2,
+            "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAA...",
+            "photoContentType": "image/png",
+            "phone": "999888777",
+            "premium": false,
+            "birthDate": null,
+            "addDate": null
+        },
+        {
+            "id": 5,
+            "photo": null,
+            "photoContentType": null,
+            "phone": null,
+            "premium": false,
+            "birthDate": null,
+            "addDate": "2022-04-05"
+        },
+        {
+            "id": 6,
+            "photo": null,
+            "photoContentType": null,
+            "phone": null,
+            "premium": false,
+            "birthDate": null,
+            "addDate": "2022-04-05"
+        }
+    ]
+}
+```
+
+Return ERROR:
+```java
+HttpStatus.Unauthorized() "401"
+HttpStatus.Bad_Request() "405"
 ```
 </details>
 
