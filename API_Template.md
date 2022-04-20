@@ -1742,3 +1742,48 @@ HttpStatus.created() "400" //*por definir
 </details>
 
 <details>
+<summary>Detelete task✨</summary>
+
+REST access:
+
+```java
+@PostMapping
+```
+
+EndPoint:
+
+```
+/task/delete-task/{id}
+```
+
+Header:
+
+```java
+null
+```
+
+Body Requireds:
+
+```Java
+
+```
+
+Info fields:
+
+Return OK:
+
+```java
+HttpStatus.ok() "204"
+```
+
+Body response:
+
+Return Bad Request:
+
+```java
+HttpStatus.created() "400" //*por definir
+```
+
+</details>
+
+<details>
