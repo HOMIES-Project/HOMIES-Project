@@ -1,3 +1,12 @@
+```text
+  ██╗    ██╗ █████████╗ ███╗  ███╗ ████████╗ ████████╗  ██████╗
+  ██║    ██║ ██║    ██║ █████████║ ╚══██╔══╝ ██╔═════╝ ██╔════╝
+  █████████║ ██║    ██║ ██║ █║ ██║    ██║    ██████╗   ╚██████╗
+  ██╔════██║ ██║    ██║ ██║ ╚╝ ██║    ██║    ██╔═══╝    ╚════██╗
+  ██║    ██║ █████████║ ██║    ██║ ████████╗ ████████╗ ███████╔╝
+  ╚═╝    ╚═╝ ╚════════╝ ╚═╝    ╚═╝ ╚═══════╝ ╚═══════╝ ╚══════╝
+```
+
 # HOMIES API
 
 <p>✨ => NEW</p> 
@@ -9,35 +18,35 @@
 #### Base Url: `https://homies-back-app.herokuapp.com/api`
 
 <br>
-
+<!--
+  ################################# USERS ###################################
+-->
 <details> 
 <summary><strong>User's Features ✨🛠️</strong></summary>
 
 <br>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/REGISTER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>Register</summary>
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
 /register
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
 ```json
 {
   "login": "nickName",
@@ -48,7 +57,6 @@ Body Requireds:
 ```
 
 Body complete:
-
 ```json
 {
   "login": "nickName",
@@ -62,7 +70,7 @@ Body complete:
 
 Info fields:
 
-```
+```text
 login => username (Required, minLen = 4, maxLen = 50)
 password => password (Required, minLen = 8, maxLen = 100)
 email => email (Required, minLen = 8, maxLen = 100)
@@ -72,14 +80,12 @@ langKey => laguagge of user (minLen = 2, maxLen = 10)
 ```
 
 Return OK:
-
 ```java
 HttpStatus.created() "201"
 ```
 
 Email to return new user and activate url for this user:
-
-```
+```text
 Dear user
 
 Your Homies account has been created, please click on the URL below to activate it:
@@ -91,45 +97,41 @@ Homies Team.
 ```
 
 Return Error:
-
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/LOGIN @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>Login</summary>
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
 /authenticate
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Info fields:
-
-```html
+```text
 username => username (Required, minLen = 4, maxLen = 100) password => password
 (Required, minLen = 8, maxLen = 100) id_token => token for user authenticate on
 all request id => id of user
 ```
 
 Body Requireds:
-
 ```json
 {
   "username": "nickName",
@@ -138,7 +140,6 @@ Body Requireds:
 ```
 
 Return OK:
-
 ```java
 HttpStatus.OK() "200"
 ```
@@ -151,37 +152,34 @@ HttpStatus.OK() "200"
 ```
 
 Return ERROR:
-
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/CHAGE PASSWORD @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>Change Password</summary>
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
 /account/change-password
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
 ```json
 {
   "currentPassword": "actualPass",
@@ -190,55 +188,49 @@ Body Requireds:
 ```
 
 Info fields:
-
-```html
+```text
 currentPassword => currentPassword (Required, minLen = 8, maxLen = 50)
 newPassword => newPassword (Required, minLen = 8, maxLen = 100)
 ```
 
 Info EndPoint:
-
-```html
+```text
 This request requires authentication need Authentication: "Bearer " + token
 ```
 
 Return OK:
-
 ```java
 HttpStatus.OK() "200"
 ```
 
 Return Bad Request:
-
 ```java
 HttpStatus.BadRequest() "400" "Incorrect password"
 ```
 
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/RESET PASSWORD @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>Reset password</summary>
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
 /account/reset-password/init
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
 ```JSON
 {
     "email": "email@domain.com"
@@ -246,13 +238,11 @@ Body Requireds:
 ```
 
 Info fields:
-
 ```html
 text: Encapsulated in JSON format
 ```
 
 Return OK:
-
 ```java
 HttpStatus.OK() "200"
 ```
@@ -265,7 +255,6 @@ HttpStatus.OK() "200"
 
 Return Bad Request:
 Return Error:
-
 ```java
 HttpStatus.Bad_Request() "400"
 ```
@@ -273,32 +262,29 @@ HttpStatus.Bad_Request() "400"
 ```html
 400 title: Password reset requested for non existing mail!
 ```
-
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/APLY RESET PASSWORD @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>Aply Reset password</summary>
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
 /account/reset-password/finish
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
 ```JSON
 {
     "key": "Rkbx5WPUs5W1JaPY7BcA",
@@ -307,68 +293,60 @@ Body Requireds:
 ```
 
 Info fields:
-
-```html
+```text
 key => key retrieved in the endPoint /account/reset-password/init newPassword =>
 newPassword (Required, minLen = 8, maxLen = 100)
 ```
 
 Return OK:
-
 ```java
 HttpStatus.OK() "200"
 ```
 
 Return Bad Request:
-
 ```java
 HttpStatus.BadRequest() "400" "Incorrect password"
 ```
 
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/VIEW USER DATA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>View userData 🛠️</summary>
 
 NEW
-
 ```text
 *The groups that the user administers, their tasks, created products and the groups they are in are now displayed.
 ```
 
 REST access:
-
 ```java
 @GetMapping
 ```
 
 EndPoint:
-
 ```
 /user-data
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
-```URL
+```
 /user-data/1
 ```
 
 Info fields:
-
 ```text
 ~/user-data/1 => example for displaying user 1 from the /user-data endpoint
 - Here you can see information about which user this information is linked to, and which groups it belongs to with their corresponding objects.
 ```
 
 Return OK:
-
 ```java
 HttpStatus.OK() "200"
 ```
@@ -471,96 +449,84 @@ HttpStatus.OK() "200"
 ```
 
 Return Bad Request:
-
-```html
+```text
 404 title: NOT_FOUND
 ```
-
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/DELETE USER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>Delete User (❌🛠️)</summary>
 
 ERROR:
-
 ```text
 ❌It is not possible to delete users who have relationships with other entities.
 ```
 
 REST access:
-
 ```java
 @DeleteMapping
 ```
 
 EndPoint:
-
 ```
-/api/user-data/x
+/user-data/x
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Info fields:
-
-```html
+```text
 x => x is the id of the user to delete
 ```
 
 Body Requireds:
-
 ```java
 null
 ```
 
 Return OK:
-
 ```java
 HttpStatus.No Content() "204"
 ```
 
 Return ERROR:
-
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
-
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/RE-SEND ACTIVATION EMAIL @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
-<summary>Re-send activated email✨</summary>
+<summary>Re-send activation email✨</summary>
 
 NEW
-
 ```text
 The user can request the activation email again.
 ```
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
 /account/reset-password/email
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
 ```JSON
 {
     "email": "email@domain.com"
@@ -568,59 +534,52 @@ Body Requireds:
 ```
 
 Info fields:
-
-```html
+```text
 text: Encapsulated in JSON format
 ```
 
 Return OK:
-
 ```java
 HttpStatus.ResetContent() "205"
 ```
 
 Return Bad Request:
 Return Error:
-
 ```java
 HttpStatus.Bad_Request() "500"
 ```
 
-```html
+```text
 500 "detail": "No value present"
 ```
-
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/EDIT USER DATA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>Edit user data✨</summary>
 
 NEW
-
 ```text
 The user can change his data.
 ```
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
-```
+```TEXT
 /account/reset-password/user-data/x
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
 ```JSON
 {
     "login": "Yorch7",
@@ -636,7 +595,6 @@ Body Requireds:
 ```
 
 Info fields:
-
 ```html
 x => user's id login => user's name firstName => real user's name lastName =>
 real user's lastName email => user's email langKey => user's language phone =>
@@ -645,7 +603,6 @@ user's phone photo => user's photo photoContentType => photo's format birthDate
 ```
 
 Return OK:
-
 ```java
 HttpStatus.Ok() "200"
 ```
@@ -731,24 +688,6 @@ HttpStatus.Ok() "200"
           "premium": false,
           "birthDate": null,
           "addDate": null
-        },
-        {
-          "id": 5,
-          "photo": null,
-          "photoContentType": null,
-          "phone": null,
-          "premium": false,
-          "birthDate": null,
-          "addDate": "2022-04-05"
-        },
-        {
-          "id": 6,
-          "photo": null,
-          "photoContentType": null,
-          "phone": null,
-          "premium": false,
-          "birthDate": null,
-          "addDate": "2022-04-05"
         }
       ]
     }
@@ -758,55 +697,49 @@ HttpStatus.Ok() "200"
 
 Return Bad Request:
 Return Error:
-
 ```java
 HttpStatus.Bad_Request() "500"
 ```
 
-```html
+```text
 500 "detail": "No value present"
 ```
-
 </details>
-
 </details>
-
 <br>
-
+<!--
+  ############################### GROUPS ##############################
+-->
 <details>
 <summary><strong>Group's Features✨🛠️</strong></summary>
-
 <br>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/CREATE NEW GROUPS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>Create new Group 🛠️</summary>
 
 NEW
-
 ```text
 It is now possible to use
 ```
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
 /groups
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
 ```json
 {
   "user": 1,
@@ -816,7 +749,6 @@ Body Requireds:
 ```
 
 Info fields:
-
 ```Text
 Request:
 user => userData.id (Require, Int) only need id of user login in app or web *For now only userData 1 can be used
@@ -834,13 +766,11 @@ taskList => group's task list (Autoasigned)
 ```
 
 Return OK:
-
 ```java
 HttpStatus.created() "201"
 ```
 
 Body response:
-
 ```json
 {
   "id": 1,
@@ -888,42 +818,37 @@ Body response:
 ```
 
 Return Bad Request:
-
 ```java
 HttpStatus.created() "400" //*por definir
 ```
-
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/GET ALL GROUPS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>Get all Groups</summary>
 
 REST access:
-
 ```java
 @GetMapping
 ```
 
 EndPoint:
-
 ```
 /groups
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
 ```java
 null
 ```
 
 Info fields:
-
 ```text
 Response:
 id => id's group (Autoasigned)
@@ -936,13 +861,11 @@ taskList => group's task list (Autoasigned)
 ```
 
 Return OK:
-
 ```java
 HttpStatus.ok() "200"
 ```
 
 Body response:
-
 ```json
 [
     {
@@ -1045,46 +968,41 @@ Body response:
 ```
 
 Return Bad Request:
-
 ```java
 HttpStatus.created() "400" //*por definir
 ```
-
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/ADD USER TO THE GROUP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>Add user to the group✨</summary>
 
 ❗ It can only be exercised by the owner of the group
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
 /api/groups/add-user
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Info fields:
-
-```html
+```text
 idAdminGroup => userAdmin's id, owner of group login => userName of new user to
 be added (it is possible to change it to use the id, ¿yes?) idGroup => group's
 id
 ```
 
 Body Requireds:
-
 ```json
 {
   "idAdminGroup": "8",
@@ -1094,7 +1012,6 @@ Body Requireds:
 ```
 
 Return OK:
-
 ```java
 HttpStatus.Ok() "200"
 ```
@@ -1157,29 +1074,20 @@ HttpStatus.Ok() "200"
       "premium": false,
       "birthDate": null,
       "addDate": "2022-04-05"
-    },
-    {
-      "id": 6,
-      "photo": null,
-      "photoContentType": null,
-      "phone": null,
-      "premium": false,
-      "birthDate": null,
-      "addDate": "2022-04-05"
     }
   ]
 }
 ```
 
 Return ERROR:
-
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
-
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/DELETE USER OF GROUP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>Delete user of group✨</summary>
 
@@ -1188,33 +1096,28 @@ HttpStatus.Bad_Request() "405"
 ❗ Remove the user from the group, and allow the administrator to leave the group by passing ownership to another user in teh group, if any.
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
-/api/groups/delete-user
+/groups/delete-user
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Info fields:
-
-```html
+```text
 idAdminGroup => userAdmin's id, owner of group login => userName of new user to
 be added (it is possible to change it to use the id, ¿yes?) idGroup => group's
 id
 ```
 
 Body Requireds:
-
 ```json
 {
   "idAdminGroup": "8",
@@ -1224,7 +1127,6 @@ Body Requireds:
 ```
 
 Return OK:
-
 ```java
 HttpStatus.No Content() "204"
 ```
@@ -1287,15 +1189,6 @@ HttpStatus.No Content() "204"
       "premium": false,
       "birthDate": null,
       "addDate": "2022-04-05"
-    },
-    {
-      "id": 6,
-      "photo": null,
-      "photoContentType": null,
-      "phone": null,
-      "premium": false,
-      "birthDate": null,
-      "addDate": "2022-04-05"
     }
   ]
 }
@@ -1307,42 +1200,38 @@ Return ERROR:
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
-
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/CHANGE GROUP ADMIN @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>Change group administrator✨</summary>
 
 ❗ It can only be exercised by the owner of the group
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
-/api/groups/change-admin
+/groups/change-admin
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Info fields:
-
-```html
+```text
 idAdminGroup => userAdmin's id, owner of group login => administrator's userName
 of new group (it is possible to change it to use the id, ¿yes?) idGroup =>
 group's id
 ```
 
 Body Requireds:
-
 ```json
 {
   "idAdminGroup": "8",
@@ -1352,7 +1241,6 @@ Body Requireds:
 ```
 
 Return OK:
-
 ```java
 HttpStatus.Ok() "200"
 ```
@@ -1415,67 +1303,47 @@ HttpStatus.Ok() "200"
       "premium": false,
       "birthDate": null,
       "addDate": "2022-04-05"
-    },
-    {
-      "id": 6,
-      "photo": null,
-      "photoContentType": null,
-      "phone": null,
-      "premium": false,
-      "birthDate": null,
-      "addDate": "2022-04-05"
     }
   ]
 }
 ```
 
 Return ERROR:
-
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
-
 </details>
-
 </details>
-
 <br>
-
+<!--
+  ################################ TASK ################################
+-->
 <details>
 <summary><strong>Task Features✨🛠️</strong></summary>
-
 <br>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TASK/CREATE NEW TASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
-<summary>Create new Task 🛠️</summary>
-
-NEW
-
-```text
-It is now possible to use
-```
+<summary>Create new Task ✨</summary>
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
 /tasks
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
 ```json
 {
   "user": 1,
@@ -1486,7 +1354,6 @@ Body Requireds:
 ```
 
 Info fields:
-
 ```Text
 Request:
 user => userData.id (Require, Int) only need id of user login in app or web
@@ -1505,13 +1372,11 @@ taskList => group's task list (Autoasigned)
 ```
 
 Return OK:
-
 ```java
 HttpStatus.created() "201"
 ```
 
 Body response:
-
 ```json
 {
   "id": 3,
@@ -1542,36 +1407,32 @@ Body response:
 ```
 
 Return Bad Request:
-
 ```java
 HttpStatus.created() "400" //*por definir
 ```
-
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TASK/ADD USET TO TASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
-<summary>Add User Task</summary>
+<summary>Add User Task ✨</summary>
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
 /tasks/add-user
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
 ```Json
 {
     "idTask": "2",
@@ -1581,7 +1442,6 @@ Body Requireds:
 ```
 
 Info fields:
-
 ```text
 Response:
 idTask => id task
@@ -1590,13 +1450,11 @@ idList => id list
 ```
 
 Return OK:
-
 ```java
 HttpStatus.ok() "200"
 ```
 
 Body response:
-
 ```json
 [
    {
@@ -1638,36 +1496,32 @@ Body response:
 ```
 
 Return Bad Request:
-
 ```java
 HttpStatus.created() "400" //*por definir
 ```
-
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TASK/DELETE USER TASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
-<summary>Detelete user task✨</summary>
+<summary>Delete user task ✨</summary>
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
 /task/delete-user
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
 ```Json
 {
     "idTask": "2",
@@ -1677,7 +1531,6 @@ Body Requireds:
 ```
 
 Info fields:
-
 ```text
 Response:
 idTask => id task
@@ -1686,13 +1539,11 @@ idList => id list
 ```
 
 Return OK:
-
 ```java
 HttpStatus.ok() "200"
 ```
 
 Body response:
-
 ```json
 [
   {
@@ -1734,56 +1585,46 @@ Body response:
 ```
 
 Return Bad Request:
-
 ```java
 HttpStatus.created() "400" //*por definir
 ```
-
 </details>
-
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TASK/DELETE TASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
 <details>
 <summary>Detelete task✨</summary>
 
 REST access:
-
 ```java
 @PostMapping
 ```
 
 EndPoint:
-
 ```
 /task/delete-task/{id}
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
 ```Java
 
 ```
 
 Info fields:
-
 Return OK:
-
 ```java
 HttpStatus.ok() "204"
 ```
 
 Body response:
-
 Return Bad Request:
 
 ```java
 HttpStatus.created() "400" //*por definir
 ```
-
 </details>
-
-<details>
