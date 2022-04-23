@@ -22,7 +22,7 @@
   ################################# USERS ###################################
 -->
 <details> 
-<summary><strong>User's Features ✨🛠️</strong></summary>
+<summary><strong>User's Features ✨🛠️❌</strong></summary>
 
 <br>
 <!--
@@ -159,7 +159,7 @@ HttpStatus.Bad_Request() "405"
 
 </details>
 <!--
-  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/CHAGE PASSWORD @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/CHANGE PASSWORD @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -->
 <details>
 <summary>Change Password</summary>
@@ -317,7 +317,7 @@ HttpStatus.BadRequest() "400" "Incorrect password"
 
 NEW
 ```text
-*The groups that the user administers, their tasks, created products and the groups they are in are now displayed.
+🛠️ *access only to backend administrator users
 ```
 
 REST access:
@@ -342,7 +342,7 @@ Body Requireds:
 
 Info fields:
 ```text
-~/user-data/1 => example for displaying user 1 from the /user-data endpoint
+/user-data/1 => example for displaying user 1 from the /user-data endpoint
 - Here you can see information about which user this information is linked to, and which groups it belongs to with their corresponding objects.
 ```
 
@@ -432,15 +432,6 @@ HttpStatus.OK() "200"
                     "premium": false,
                     "birthDate": null,
                     "addDate": "2022-04-05"
-                },
-                {
-                    "id": 6,
-                    "photo": null,
-                    "photoContentType": null,
-                    "phone": null,
-                    "premium": false,
-                    "birthDate": null,
-                    "addDate": "2022-04-05"
                 }
             ]
         }
@@ -457,11 +448,11 @@ Return Bad Request:
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/DELETE USER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -->
 <details>
-<summary>Delete User (❌🛠️)</summary>
+<summary>Delete User ✨🛠️</summary>
 
-ERROR:
+NEW:
 ```text
-❌It is not possible to delete users who have relationships with other entities.
+✨ It is now possible to delete a user account
 ```
 
 REST access:
@@ -504,11 +495,11 @@ HttpStatus.Bad_Request() "405"
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/RE-SEND ACTIVATION EMAIL @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -->
 <details>
-<summary>Re-send activation email✨</summary>
+<summary>Re-send activation email ❌</summary>
 
-NEW
+ERROR:
 ```text
-The user can request the activation email again.
+❌ Only allows forwarding if you are logged in, so it does not work properly.
 ```
 
 REST access:
@@ -557,12 +548,7 @@ HttpStatus.Bad_Request() "500"
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/EDIT USER DATA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -->
 <details>
-<summary>Edit user data✨</summary>
-
-NEW
-```text
-The user can change his data.
-```
+<summary>Edit user data</summary>
 
 REST access:
 ```java
@@ -717,12 +703,7 @@ HttpStatus.Bad_Request() "500"
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/CREATE NEW GROUPS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -->
 <details>
-<summary>Create new Group 🛠️</summary>
-
-NEW
-```text
-It is now possible to use
-```
+<summary>Create new Group</summary>
 
 REST access:
 ```java
@@ -826,7 +807,12 @@ HttpStatus.created() "400" //*por definir
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/GET ALL GROUPS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -->
 <details>
-<summary>Get all Groups</summary>
+<summary>Get all Groups 🛠️</summary>
+
+NEW:
+```text
+Only allows forwarding if you are logged in, so it does not work properly.
+```
 
 REST access:
 ```java
@@ -976,7 +962,7 @@ HttpStatus.created() "400" //*por definir
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/ADD USER TO THE GROUP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -->
 <details>
-<summary>Add user to the group✨</summary>
+<summary>Add user to the group</summary>
 
 ❗ It can only be exercised by the owner of the group
 
@@ -1089,9 +1075,8 @@ HttpStatus.Bad_Request() "405"
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/DELETE USER OF GROUP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -->
 <details>
-<summary>Delete user of group✨</summary>
+<summary>Delete user of group (Allows the administrator to exit from himself/herself)</summary>
 
-❗❗❗ Improving performance
 ❗ It can only be exercised by the owner of the group
 ❗ Remove the user from the group, and allow the administrator to leave the group by passing ownership to another user in teh group, if any.
 
@@ -1195,7 +1180,6 @@ HttpStatus.No Content() "204"
 ```
 
 Return ERROR:
-
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
@@ -1205,7 +1189,7 @@ HttpStatus.Bad_Request() "405"
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/CHANGE GROUP ADMIN @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -->
 <details>
-<summary>Change group administrator✨</summary>
+<summary>Change group administrator</summary>
 
 ❗ It can only be exercised by the owner of the group
 
@@ -1314,13 +1298,63 @@ HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 </details>
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/DELETE GROUP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
+<details>
+<summary>Delete group ✨</summary>
+
+❗ It can only be exercised by the owner of the group
+
+REST access:
+```java
+@DeleteMapping
+```
+
+EndPoint:
+```
+/groups
+```
+
+Header:
+```java
+null
+```
+
+Info fields:
+```text
+idAdminGroup => userAdmin's id, owner of group login => administrator's userName
+of new group (it is possible to change it to use the id, ¿yes?) idGroup =>
+group's id
+```
+
+Body Requireds:
+```json
+{
+  "idAdminGroup": "8",
+  "login": "newUserName",
+  "idGroup": "1"
+}
+```
+
+Return OK:
+```java
+HttpStatus.NoContent() "204"
+```
+
+Return ERROR:
+```java
+HttpStatus.Unauthorized() "401"
+HttpStatus.Bad_Request() "405"
+```
+</details>
 </details>
 <br>
 <!--
   ################################ TASK ################################
 -->
 <details>
-<summary><strong>Task Features✨🛠️</strong></summary>
+<summary><strong>Task Features✨</strong></summary>
 <br>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TASK/CREATE NEW TASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
