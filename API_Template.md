@@ -68,17 +68,6 @@ Body complete:
 }
 ```
 
-Info fields:
-
-```text
-login => username (Required, minLen = 4, maxLen = 50)
-password => password (Required, minLen = 8, maxLen = 100)
-email => email (Required, minLen = 8, maxLen = 100)
-fistName => name of user (maxLen = 50)
-lastName => last name of user (maxLen = 50)
-langKey => laguagge of user (minLen = 2, maxLen = 10)
-```
-
 Return OK:
 ```java
 HttpStatus.created() "201"
@@ -102,6 +91,16 @@ HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 
+Info fields:
+
+```text
+login => username (Required, minLen = 4, maxLen = 50)
+password => password (Required, minLen = 8, maxLen = 100)
+email => email (Required, minLen = 8, maxLen = 100)
+fistName => name of user (maxLen = 50)
+lastName => last name of user (maxLen = 50)
+langKey => laguagge of user (minLen = 2, maxLen = 10)
+```
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/LOGIN @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -122,13 +121,6 @@ EndPoint:
 Header:
 ```java
 null
-```
-
-Info fields:
-```text
-username => username (Required, minLen = 4, maxLen = 100) password => password
-(Required, minLen = 8, maxLen = 100) id_token => token for user authenticate on
-all request id => id of user
 ```
 
 Body Requireds:
@@ -157,6 +149,12 @@ HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 
+Info fields:
+```text
+username => username (Required, minLen = 4, maxLen = 100) password => password
+(Required, minLen = 8, maxLen = 100) id_token => token for user authenticate on
+all request id => id of user
+```
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/CHANGE PASSWORD @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -187,17 +185,6 @@ Body Requireds:
 }
 ```
 
-Info fields:
-```text
-currentPassword => currentPassword (Required, minLen = 8, maxLen = 50)
-newPassword => newPassword (Required, minLen = 8, maxLen = 100)
-```
-
-Info EndPoint:
-```text
-This request requires authentication need Authentication: "Bearer " + token
-```
-
 Return OK:
 ```java
 HttpStatus.OK() "200"
@@ -208,6 +195,16 @@ Return Bad Request:
 HttpStatus.BadRequest() "400" "Incorrect password"
 ```
 
+Info fields:
+```text
+currentPassword => currentPassword (Required, minLen = 8, maxLen = 50)
+newPassword => newPassword (Required, minLen = 8, maxLen = 100)
+```
+
+Info EndPoint:
+```text
+This request requires authentication need Authentication: "Bearer " + token
+```
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/RESET PASSWORD @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -237,11 +234,6 @@ Body Requireds:
 }
 ```
 
-Info fields:
-```html
-text: Encapsulated in JSON format
-```
-
 Return OK:
 ```java
 HttpStatus.OK() "200"
@@ -259,8 +251,13 @@ Return Error:
 HttpStatus.Bad_Request() "400"
 ```
 
-```html
+```text
 400 title: Password reset requested for non existing mail!
+```
+
+Info fields:
+```html
+text: Encapsulated in JSON format
 ```
 </details>
 <!--
@@ -292,12 +289,6 @@ Body Requireds:
 }
 ```
 
-Info fields:
-```text
-key => key retrieved in the endPoint /account/reset-password/init newPassword =>
-newPassword (Required, minLen = 8, maxLen = 100)
-```
-
 Return OK:
 ```java
 HttpStatus.OK() "200"
@@ -308,6 +299,11 @@ Return Bad Request:
 HttpStatus.BadRequest() "400" "Incorrect password"
 ```
 
+Info fields:
+```text
+key => key retrieved in the endPoint /account/reset-password/init newPassword =>
+newPassword (Required, minLen = 8, maxLen = 100)
+```
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/VIEW USER DATA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -338,12 +334,6 @@ null
 Body Requireds:
 ```
 /user-data/1
-```
-
-Info fields:
-```text
-/user-data/1 => example for displaying user 1 from the /user-data endpoint
-- Here you can see information about which user this information is linked to, and which groups it belongs to with their corresponding objects.
 ```
 
 Return OK:
@@ -443,6 +433,12 @@ Return Bad Request:
 ```text
 404 title: NOT_FOUND
 ```
+
+Info fields:
+```text
+/user-data/1 => example for displaying user 1 from the /user-data endpoint
+- Here you can see information about which user this information is linked to, and which groups it belongs to with their corresponding objects.
+```
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/DELETE USER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -470,11 +466,6 @@ Header:
 null
 ```
 
-Info fields:
-```text
-x => x is the id of the user to delete
-```
-
 Body Requireds:
 ```java
 null
@@ -489,6 +480,11 @@ Return ERROR:
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
+```
+
+Info fields:
+```text
+x => x is the id of the user to delete
 ```
 </details>
 <!--
@@ -524,11 +520,6 @@ Body Requireds:
 }
 ```
 
-Info fields:
-```text
-text: Encapsulated in JSON format
-```
-
 Return OK:
 ```java
 HttpStatus.ResetContent() "205"
@@ -542,6 +533,11 @@ HttpStatus.Bad_Request() "500"
 
 ```text
 500 "detail": "No value present"
+```
+
+Info fields:
+```text
+text: Encapsulated in JSON format
 ```
 </details>
 <!--
@@ -578,14 +574,6 @@ Body Requireds:
     "photoContentType": "image/png",
     "birthDate": "1985-11-16T05:50:48Z"
 }
-```
-
-Info fields:
-```html
-x => user's id login => user's name firstName => real user's name lastName =>
-real user's lastName email => user's email langKey => user's language phone =>
-user's phone photo => user's photo photoContentType => photo's format birthDate
-=> user's birth day
 ```
 
 Return OK:
@@ -690,6 +678,14 @@ HttpStatus.Bad_Request() "500"
 ```text
 500 "detail": "No value present"
 ```
+
+Info fields:
+```html
+x => user's id login => user's name firstName => real user's name lastName =>
+real user's lastName email => user's email langKey => user's language phone =>
+user's phone photo => user's photo photoContentType => photo's format birthDate
+=> user's birth day
+```
 </details>
 </details>
 <br>
@@ -727,23 +723,6 @@ Body Requireds:
   "groupName": "grupoPrueba1",
   "groupRelation": "esto es un grupo de prueba"
 }
-```
-
-Info fields:
-```Text
-Request:
-user => userData.id (Require, Int) only need id of user login in app or web *For now only userData 1 can be used
-groupName => name of group (Require, unique, lenMin = 3, lenMax = 50, text)
-groupRelation => reason why the group exist (Require, unique, lenMin = 3, lenMax = 100, text)
-
-Response:
-id => id's group (Autoasigned)
-groupKey => key/password group (Autoasigned)
-groupName => name of group
-groupRelation => reason why the group exist
-userData => extension of "user" for save extra data of users
-userAdmin => user who created the group
-taskList => group's task list (Autoasigned)
 ```
 
 Return OK:
@@ -802,6 +781,23 @@ Return Bad Request:
 ```java
 HttpStatus.created() "400" //*por definir
 ```
+
+Info fields:
+```Text
+Request:
+user => userData.id (Require, Int) only need id of user login in app or web *For now only userData 1 can be used
+groupName => name of group (Require, unique, lenMin = 3, lenMax = 50, text)
+groupRelation => reason why the group exist (Require, unique, lenMin = 3, lenMax = 100, text)
+
+Info Response:
+id => id's group (Autoasigned)
+groupKey => key/password group (Autoasigned)
+groupName => name of group
+groupRelation => reason why the group exist
+userData => extension of "user" for save extra data of users
+userAdmin => user who created the group
+taskList => group's task list (Autoasigned)
+```
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/GET ALL GROUPS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -832,18 +828,6 @@ null
 Body Requireds:
 ```java
 null
-```
-
-Info fields:
-```text
-Response:
-id => id's group (Autoasigned)
-groupKey => key/password group (Autoasigned)
-groupName => name of group
-groupRelation => reason why the group exist
-userData => extension of "user" for save extra data of users
-userAdmin => user who created the group
-taskList => group's task list (Autoasigned)
 ```
 
 Return OK:
@@ -957,6 +941,18 @@ Return Bad Request:
 ```java
 HttpStatus.created() "400" //*por definir
 ```
+
+Info fields:
+```text
+Response:
+id => id's group (Autoasigned)
+groupKey => key/password group (Autoasigned)
+groupName => name of group
+groupRelation => reason why the group exist
+userData => extension of "user" for save extra data of users
+userAdmin => user who created the group
+taskList => group's task list (Autoasigned)
+```
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/ADD USER TO THE GROUP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -973,19 +969,12 @@ REST access:
 
 EndPoint:
 ```
-/api/groups/add-user
+/groups/add-user
 ```
 
 Header:
 ```java
 null
-```
-
-Info fields:
-```text
-idAdminGroup => userAdmin's id, owner of group login => userName of new user to
-be added (it is possible to change it to use the id, ¿yes?) idGroup => group's
-id
 ```
 
 Body Requireds:
@@ -1070,6 +1059,13 @@ Return ERROR:
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
+
+Info fields:
+```text
+idAdminGroup => userAdmin's id, owner of group login => userName of new user to
+be added (it is possible to change it to use the id, ¿yes?) idGroup => group's
+id
+```
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/DELETE USER OF GROUP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1093,13 +1089,6 @@ EndPoint:
 Header:
 ```java
 null
-```
-
-Info fields:
-```text
-idAdminGroup => userAdmin's id, owner of group login => userName of new user to
-be added (it is possible to change it to use the id, ¿yes?) idGroup => group's
-id
 ```
 
 Body Requireds:
@@ -1184,6 +1173,13 @@ Return ERROR:
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
+
+Info fields:
+```text
+idAdminGroup => userAdmin's id, owner of group login => userName of new user to
+be added (it is possible to change it to use the id, ¿yes?) idGroup => group's
+id
+```
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/CHANGE GROUP ADMIN @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1206,13 +1202,6 @@ EndPoint:
 Header:
 ```java
 null
-```
-
-Info fields:
-```text
-idAdminGroup => userAdmin's id, owner of group login => administrator's userName
-of new group (it is possible to change it to use the id, ¿yes?) idGroup =>
-group's id
 ```
 
 Body Requireds:
@@ -1297,6 +1286,13 @@ Return ERROR:
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
+
+Info fields:
+```text
+idAdminGroup => userAdmin's id, owner of group login => administrator's userName
+of new group (it is possible to change it to use the id, ¿yes?) idGroup =>
+group's id
+```
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/DELETE GROUP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1321,13 +1317,6 @@ Header:
 null
 ```
 
-Info fields:
-```text
-idAdminGroup => userAdmin's id, owner of group login => administrator's userName
-of new group (it is possible to change it to use the id, ¿yes?) idGroup =>
-group's id
-```
-
 Body Requireds:
 ```json
 {
@@ -1346,6 +1335,13 @@ Return ERROR:
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
+```
+
+Info fields:
+```text
+idAdminGroup => userAdmin's id, owner of group login => administrator's userName
+of new group (it is possible to change it to use the id, ¿yes?) idGroup =>
+group's id
 ```
 </details>
 </details>
@@ -1387,24 +1383,6 @@ Body Requireds:
 }
 ```
 
-Info fields:
-```Text
-Request:
-user => userData.id (Require, Int) only need id of user login in app or web
-idGroup => It is generated only when the group is created
-taskName => (name = "task_name", length = 50, nullable = false)
-description => (name = "description", length = 100, nullable = false)
-
-Response:
-id => id's group (Autoasigned)
-groupKey => key/password group (Autoasigned)
-groupName => name of group
-groupRelation => reason why the group exist
-userData => extension of "user" for save extra data of users
-userAdmin => user who created the group
-taskList => group's task list (Autoasigned)
-```
-
 Return OK:
 ```java
 HttpStatus.created() "201"
@@ -1444,6 +1422,24 @@ Return Bad Request:
 ```java
 HttpStatus.created() "400" //*por definir
 ```
+
+Info fields:
+```Text
+Request:
+user => userData.id (Require, Int) only need id of user login in app or web
+idGroup => It is generated only when the group is created
+taskName => (name = "task_name", length = 50, nullable = false)
+description => (name = "description", length = 100, nullable = false)
+
+Response:
+id => id's group (Autoasigned)
+groupKey => key/password group (Autoasigned)
+groupName => name of group
+groupRelation => reason why the group exist
+userData => extension of "user" for save extra data of users
+userAdmin => user who created the group
+taskList => group's task list (Autoasigned)
+```
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TASK/ADD USET TO TASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1473,14 +1469,6 @@ Body Requireds:
     "login": "user",
     "idList": "1"
 }
-```
-
-Info fields:
-```text
-Response:
-idTask => id task
-login => name user
-idList => id list
 ```
 
 Return OK:
@@ -1533,6 +1521,14 @@ Return Bad Request:
 ```java
 HttpStatus.created() "400" //*por definir
 ```
+
+Info fields:
+```text
+Response:
+idTask => id task
+login => name user
+idList => id list
+```
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TASK/DELETE USER TASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1562,14 +1558,6 @@ Body Requireds:
     "login": "admin",
     "idList": "1"
 }
-```
-
-Info fields:
-```text
-Response:
-idTask => id task
-login => name user
-idList => id list
 ```
 
 Return OK:
@@ -1622,6 +1610,14 @@ Return Bad Request:
 ```java
 HttpStatus.created() "400" //*por definir
 ```
+
+Info fields:
+```text
+Response:
+idTask => id task
+login => name user
+idList => id list
+```
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TASK/DELETE TASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1649,7 +1645,6 @@ Body Requireds:
 
 ```
 
-Info fields:
 Return OK:
 ```java
 HttpStatus.ok() "204"
