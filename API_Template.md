@@ -807,7 +807,7 @@ taskList => group's task list (Autoasigned)
 
 NEW:
 ```text
-Only allows forwarding if you are logged in, so it does not work properly.
+Only allows queries to backend administrators.
 ```
 
 REST access:
@@ -1073,8 +1073,9 @@ id
 <details>
 <summary>Delete user of group (Allows the administrator to exit from himself/herself)</summary>
 
-❗ It can only be exercised by the owner of the group
-❗ Remove the user from the group, and allow the administrator to leave the group by passing ownership to another user in teh group, if any.
+- ❗ It can only be exercised by the owner of the group.
+- ❗ Remove the user from the group, and allow the administrator to leave the group by passing ownership to another user in teh group, if any.
+- ❗ It can be used to make a user leave the group, just send the request without an administrator user.
 
 REST access:
 ```java
@@ -1095,6 +1096,14 @@ Body Requireds:
 ```json
 {
   "idAdminGroup": "8",
+  "login": "newUserName",
+  "idGroup": "1"
+}
+```
+
+❗❗❗❗❗❗ Body Requireds: (only for a user to leave the group)
+```json
+{
   "login": "newUserName",
   "idGroup": "1"
 }
