@@ -32,21 +32,25 @@
 <summary>Register</summary>
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /register
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```json
 {
   "login": "nickName",
@@ -57,6 +61,7 @@ Body Requireds:
 ```
 
 Body complete:
+
 ```json
 {
   "login": "nickName",
@@ -69,11 +74,13 @@ Body complete:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.created() "201"
 ```
 
 Email to return new user and activate url for this user:
+
 ```text
 Dear user
 
@@ -86,6 +93,7 @@ Homies Team.
 ```
 
 Return Error:
+
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
@@ -101,6 +109,7 @@ fistName => name of user (maxLen = 50)
 lastName => last name of user (maxLen = 50)
 langKey => laguagge of user (minLen = 2, maxLen = 10)
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/LOGIN @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -109,21 +118,25 @@ langKey => laguagge of user (minLen = 2, maxLen = 10)
 <summary>Login</summary>
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /authenticate
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```json
 {
   "username": "nickName",
@@ -132,6 +145,7 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.OK() "200"
 ```
@@ -144,17 +158,20 @@ HttpStatus.OK() "200"
 ```
 
 Return ERROR:
+
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 
 Info fields:
+
 ```text
 username => username (Required, minLen = 4, maxLen = 100) password => password
 (Required, minLen = 8, maxLen = 100) id_token => token for user authenticate on
 all request id => id of user
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/CHANGE PASSWORD @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -163,21 +180,25 @@ all request id => id of user
 <summary>Change Password</summary>
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /account/change-password
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```json
 {
   "currentPassword": "actualPass",
@@ -186,25 +207,30 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.OK() "200"
 ```
 
 Return Bad Request:
+
 ```java
 HttpStatus.BadRequest() "400" "Incorrect password"
 ```
 
 Info fields:
+
 ```text
 currentPassword => currentPassword (Required, minLen = 8, maxLen = 50)
 newPassword => newPassword (Required, minLen = 8, maxLen = 100)
 ```
 
 Info EndPoint:
+
 ```text
 This request requires authentication need Authentication: "Bearer " + token
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/RESET PASSWORD @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -213,21 +239,25 @@ This request requires authentication need Authentication: "Bearer " + token
 <summary>Reset password</summary>
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /account/reset-password/init
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```JSON
 {
     "email": "email@domain.com"
@@ -235,6 +265,7 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.OK() "200"
 ```
@@ -247,6 +278,7 @@ HttpStatus.OK() "200"
 
 Return Bad Request:
 Return Error:
+
 ```java
 HttpStatus.Bad_Request() "400"
 ```
@@ -256,9 +288,11 @@ HttpStatus.Bad_Request() "400"
 ```
 
 Info fields:
+
 ```html
 text: Encapsulated in JSON format
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/APLY RESET PASSWORD @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -267,21 +301,25 @@ text: Encapsulated in JSON format
 <summary>Aply Reset password</summary>
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /account/reset-password/finish
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```JSON
 {
     "key": "Rkbx5WPUs5W1JaPY7BcA",
@@ -290,20 +328,24 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.OK() "200"
 ```
 
 Return Bad Request:
+
 ```java
 HttpStatus.BadRequest() "400" "Incorrect password"
 ```
 
 Info fields:
+
 ```text
 key => key retrieved in the endPoint /account/reset-password/init newPassword =>
 newPassword (Required, minLen = 8, maxLen = 100)
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/VIEW USER DATA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -312,31 +354,37 @@ newPassword (Required, minLen = 8, maxLen = 100)
 <summary>View userData 🛠️</summary>
 
 NEW
+
 ```text
 🛠️ *access only to backend administrator users
 ```
 
 REST access:
+
 ```java
 @GetMapping
 ```
 
 EndPoint:
+
 ```
 /user-data
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```
 /user-data/1
 ```
 
 Return OK:
+
 ```java
 HttpStatus.OK() "200"
 ```
@@ -430,15 +478,18 @@ HttpStatus.OK() "200"
 ```
 
 Return Bad Request:
+
 ```text
 404 title: NOT_FOUND
 ```
 
 Info fields:
+
 ```text
 /user-data/1 => example for displaying user 1 from the /user-data endpoint
 - Here you can see information about which user this information is linked to, and which groups it belongs to with their corresponding objects.
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/DELETE USER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -447,45 +498,54 @@ Info fields:
 <summary>Delete User ✨🛠️</summary>
 
 NEW:
+
 ```text
 ✨ It is now possible to delete a user account
 ```
 
 REST access:
+
 ```java
 @DeleteMapping
 ```
 
 EndPoint:
+
 ```
 /user-data/x
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```java
 null
 ```
 
 Return OK:
+
 ```java
 HttpStatus.No Content() "204"
 ```
 
 Return ERROR:
+
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 
 Info fields:
+
 ```text
 x => x is the id of the user to delete
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/RE-SEND ACTIVATION EMAIL @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -494,26 +554,31 @@ x => x is the id of the user to delete
 <summary>Re-send activation email ❌</summary>
 
 ERROR:
+
 ```text
 ❌ Only allows forwarding if you are logged in, so it does not work properly.
 ```
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /account/reset-password/email
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```JSON
 {
     "email": "email@domain.com"
@@ -521,12 +586,14 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.ResetContent() "205"
 ```
 
 Return Bad Request:
 Return Error:
+
 ```java
 HttpStatus.Bad_Request() "500"
 ```
@@ -536,9 +603,11 @@ HttpStatus.Bad_Request() "500"
 ```
 
 Info fields:
+
 ```text
 text: Encapsulated in JSON format
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/EDIT USER DATA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -547,21 +616,25 @@ text: Encapsulated in JSON format
 <summary>Edit user data</summary>
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```TEXT
 /account/reset-password/user-data/x
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```JSON
 {
     "login": "Yorch7",
@@ -577,6 +650,7 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.Ok() "200"
 ```
@@ -671,6 +745,7 @@ HttpStatus.Ok() "200"
 
 Return Bad Request:
 Return Error:
+
 ```java
 HttpStatus.Bad_Request() "500"
 ```
@@ -680,12 +755,14 @@ HttpStatus.Bad_Request() "500"
 ```
 
 Info fields:
+
 ```html
 x => user's id login => user's name firstName => real user's name lastName =>
 real user's lastName email => user's email langKey => user's language phone =>
 user's phone photo => user's photo photoContentType => photo's format birthDate
 => user's birth day
 ```
+
 </details>
 </details>
 <br>
@@ -702,21 +779,25 @@ user's phone photo => user's photo photoContentType => photo's format birthDate
 <summary>Create new Group</summary>
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /groups
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```json
 {
   "user": 1,
@@ -726,11 +807,13 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.created() "201"
 ```
 
 Body response:
+
 ```json
 {
   "id": 1,
@@ -778,11 +861,13 @@ Body response:
 ```
 
 Return Bad Request:
+
 ```java
 HttpStatus.created() "400" //*por definir
 ```
 
 Info fields:
+
 ```Text
 Request:
 user => userData.id (Require, Int) only need id of user login in app or web *For now only userData 1 can be used
@@ -798,6 +883,7 @@ userData => extension of "user" for save extra data of users
 userAdmin => user who created the group
 taskList => group's task list (Autoasigned)
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/GET ALL GROUPS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -806,36 +892,43 @@ taskList => group's task list (Autoasigned)
 <summary>Get all Groups 🛠️</summary>
 
 NEW:
+
 ```text
 Only allows queries to backend administrators.
 ```
 
 REST access:
+
 ```java
 @GetMapping
 ```
 
 EndPoint:
+
 ```
 /groups
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```java
 null
 ```
 
 Return OK:
+
 ```java
 HttpStatus.ok() "200"
 ```
 
 Body response:
+
 ```json
 [
     {
@@ -938,11 +1031,13 @@ Body response:
 ```
 
 Return Bad Request:
+
 ```java
 HttpStatus.created() "400" //*por definir
 ```
 
 Info fields:
+
 ```text
 Response:
 id => id's group (Autoasigned)
@@ -953,6 +1048,7 @@ userData => extension of "user" for save extra data of users
 userAdmin => user who created the group
 taskList => group's task list (Autoasigned)
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/ADD USER TO THE GROUP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -963,21 +1059,25 @@ taskList => group's task list (Autoasigned)
 ❗ It can only be exercised by the owner of the group
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /groups/add-user
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```json
 {
   "idAdminGroup": "8",
@@ -987,6 +1087,7 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.Ok() "200"
 ```
@@ -1055,17 +1156,20 @@ HttpStatus.Ok() "200"
 ```
 
 Return ERROR:
+
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 
 Info fields:
+
 ```text
 idAdminGroup => userAdmin's id, owner of group login => userName of new user to
 be added (it is possible to change it to use the id, ¿yes?) idGroup => group's
 id
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/DELETE USER OF GROUP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1078,21 +1182,25 @@ id
 - ❗ It can be used to make a user leave the group, just send the request without an administrator user.
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /groups/delete-user
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```json
 {
   "idAdminGroup": "8",
@@ -1102,6 +1210,7 @@ Body Requireds:
 ```
 
 ❗❗❗❗❗❗ Body Requireds: (only for a user to leave the group)✨
+
 ```json
 {
   "login": "newUserName",
@@ -1110,6 +1219,7 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.No Content() "204"
 ```
@@ -1178,17 +1288,20 @@ HttpStatus.No Content() "204"
 ```
 
 Return ERROR:
+
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 
 Info fields:
+
 ```text
 idAdminGroup => userAdmin's id, owner of group login => userName of new user to
 be added (it is possible to change it to use the id, ¿yes?) idGroup => group's
 id
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/CHANGE GROUP ADMIN @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1199,21 +1312,25 @@ id
 ❗ It can only be exercised by the owner of the group
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /groups/change-admin
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```json
 {
   "idAdminGroup": "8",
@@ -1223,6 +1340,7 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.Ok() "200"
 ```
@@ -1291,17 +1409,20 @@ HttpStatus.Ok() "200"
 ```
 
 Return ERROR:
+
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 
 Info fields:
+
 ```text
 idAdminGroup => userAdmin's id, owner of group login => administrator's userName
 of new group (it is possible to change it to use the id, ¿yes?) idGroup =>
 group's id
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/DELETE GROUP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1312,21 +1433,25 @@ group's id
 ❗ It can only be exercised by the owner of the group
 
 REST access:
+
 ```java
 @DeleteMapping
 ```
 
 EndPoint:
+
 ```
 /groups
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```json
 {
   "idAdminGroup": "8",
@@ -1336,22 +1461,26 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.NoContent() "204"
 ```
 
 Return ERROR:
+
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 
 Info fields:
+
 ```text
 idAdminGroup => userAdmin's id, owner of group login => administrator's userName
 of new group (it is possible to change it to use the id, ¿yes?) idGroup =>
 group's id
 ```
+
 </details>
 </details>
 <br>
@@ -1361,6 +1490,30 @@ group's id
 <details>
 <summary><strong>Task Features✨</strong></summary>
 <br>
+
+<!--
+  ################################ TASK ENTITY ################################
+-->
+<details>
+<summary>Entity</summary>
+
+Info variables:
+
+```text
+Response:
+id => id task
+task_name => name task
+data_create => date on which the task is created
+data_end => date on which the task is finish
+description => description task
+cancel => boolean variable used to cross out the task if it has been completed
+photo => photo task
+puntuacion => for the time being it will not be used
+
+```
+
+</details>
+
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TASK/CREATE NEW TASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -->
@@ -1368,43 +1521,49 @@ group's id
 <summary>Create new Task ✨</summary>
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /tasks
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```json
 {
   "user": 1,
   "idGroup": "1",
-  "taskName": "Segunda prueba, venga que no queda nada",
-  "description": "Esto es una mierda de prueba solo para ver que todo funciona"
+  "taskName": "Lavar platos",
+  "description": "Lava también la taza de mi cuarto"
 }
 ```
 
 Return OK:
+
 ```java
 HttpStatus.created() "201"
 ```
 
 Body response:
+
 ```json
 {
   "id": 3,
-  "taskName": "Segunda prueba, venga que no queda nadaa",
+  "taskName": "Lavar platos",
   "dataCreate": "2022-04-20",
   "dataEnd": null,
-  "description": "Esto es una mierda de prueba solo para ver que todo funciona",
+  "description": "Lava también la taza de mi cuarto",
   "cancel": null,
   "photo": null,
   "photoContentType": null,
@@ -1428,11 +1587,13 @@ Body response:
 ```
 
 Return Bad Request:
+
 ```java
 HttpStatus.created() "400" //*por definir
 ```
 
 Info fields:
+
 ```Text
 Request:
 user => userData.id (Require, Int) only need id of user login in app or web
@@ -1449,6 +1610,7 @@ userData => extension of "user" for save extra data of users
 userAdmin => user who created the group
 taskList => group's task list (Autoasigned)
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TASK/ADD USET TO TASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1457,21 +1619,25 @@ taskList => group's task list (Autoasigned)
 <summary>Add User Task ✨</summary>
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /tasks/add-user
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```Json
 {
     "idTask": "2",
@@ -1481,19 +1647,21 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.ok() "200"
 ```
 
 Body response:
+
 ```json
 [
    {
     "id": 2,
-    "taskName": "Segunda prueba, venga que no queda nada",
+    "taskName": "Lavar platos",
     "dataCreate": "2022-04-18",
     "dataEnd": null,
-    "description": "Esto es una mierda de prueba solo para ver que todo funciona",
+    "description": "Lava también la taza de mi cuarto",
     "cancel": null,
     "photo": null,
     "photoContentType": null,
@@ -1527,17 +1695,20 @@ Body response:
 ```
 
 Return Bad Request:
+
 ```java
 HttpStatus.created() "400" //*por definir
 ```
 
 Info fields:
+
 ```text
 Response:
 idTask => id task
 login => name user
 idList => id list
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TASK/DELETE USER TASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1546,21 +1717,25 @@ idList => id list
 <summary>Delete user task ✨</summary>
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /task/delete-user
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```Json
 {
     "idTask": "2",
@@ -1570,19 +1745,21 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.ok() "200"
 ```
 
 Body response:
+
 ```json
 [
   {
     "id": 2,
-    "taskName": "Segunda prueba, venga que no queda nada",
+    "taskName": "Lavar platos",
     "dataCreate": "2022-04-18",
     "dataEnd": null,
-    "description": "Esto es una mierda de prueba solo para ver que todo funciona",
+    "description": "Lava también la taza de mi cuarto",
     "cancel": null,
     "photo": null,
     "photoContentType": null,
@@ -1616,17 +1793,20 @@ Body response:
 ```
 
 Return Bad Request:
+
 ```java
 HttpStatus.created() "400" //*por definir
 ```
 
 Info fields:
+
 ```text
 Response:
 idTask => id task
 login => name user
 idList => id list
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TASK/DELETE TASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1635,26 +1815,31 @@ idList => id list
 <summary>Detelete task✨</summary>
 
 REST access:
+
 ```java
 @PostMapping
 ```
 
 EndPoint:
+
 ```
 /task/delete-task/{id}
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```Java
 
 ```
 
 Return OK:
+
 ```java
 HttpStatus.ok() "204"
 ```
@@ -1665,4 +1850,343 @@ Return Bad Request:
 ```java
 HttpStatus.created() "400" //*por definir
 ```
+
+</details>
+
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GET/ALLTASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
+<details>
+<summary>Get/ All tasks ✨</summary>
+
+REST access:
+
+```java
+@GetMapping
+```
+
+EndPoint:
+
+```
+/task-lists
+```
+
+Header:
+
+```java
+null
+```
+
+Body Requireds:
+
+```Json
+null
+```
+
+Return OK:
+
+```java
+HttpStatus.ok() "200"
+```
+
+Body response:
+
+```json
+[
+  [
+    {
+        "id": 1,
+        "nameList": "New",
+        "group": {
+            "id": 1,
+            "groupKey": "Tunisian payment",
+            "groupName": "South",
+            "groupRelationName": "explicit white",
+            "addGroupDate": "2022-03-07"
+        },
+        "tasks": [
+            {
+                "id": 11,
+                "taskName": "Alex",
+                "dataCreate": "2022-04-24",
+                "dataEnd": null,
+                "description": "JORGE",
+                "cancel": null,
+                "photo": null,
+                "photoContentType": null,
+                "puntuacion": null
+            }
+    ]
+} ...
+```
+
+Return Bad Request:
+
+```java
+HttpStatus.created() "400" //*por definir
+```
+
+</details>
+
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GET/ONETASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
+<details>
+<summary>Get/ One task ✨</summary>
+
+REST access:
+
+```java
+@GetMapping
+```
+
+EndPoint:
+
+```
+/task-lists/{id}
+```
+
+Header:
+
+```java
+null
+```
+
+Body Requireds:
+
+```Json
+null
+```
+
+Return OK:
+
+```java
+HttpStatus.ok() "200"
+```
+
+Body response:
+
+```json
+[
+  [
+    {
+    "id": 1,
+    "nameList": "New",
+    "group": {
+        "id": 1,
+        "groupKey": "Tunisian payment",
+        "groupName": "South",
+        "groupRelationName": "explicit white",
+        "addGroupDate": "2022-03-07"
+    },
+    "tasks": [
+        {
+            "id": 12,
+            "taskName": "Alex",
+            "dataCreate": "2022-04-24",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 11,
+            "taskName": "Alex",
+            "dataCreate": "2022-04-24",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 13,
+            "taskName": "Alesx",
+            "dataCreate": "2022-04-24",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 14,
+            "taskName": "Alesx",
+            "dataCreate": "2022-04-24",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 15,
+            "taskName": "Alesxs",
+            "dataCreate": "2022-04-24",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 16,
+            "taskName": "Alesxs",
+            "dataCreate": "2022-04-24",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 17,
+            "taskName": "Alesxss",
+            "dataCreate": "2022-04-25",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 18,
+            "taskName": "Alesxss",
+            "dataCreate": "2022-04-25",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 19,
+            "taskName": "Alesxsss",
+            "dataCreate": "2022-04-25",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 20,
+            "taskName": "Alesxsss",
+            "dataCreate": "2022-04-25",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        }
+    ]
+}
+    ]
+} ...
+```
+
+Return Bad Request:
+
+```java
+HttpStatus.created() "400" //*por definir
+```
+
+</details>
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Get-TaskList-Task-User@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
+<details>
+<summary>Get/ All task for one user✨</summary>
+
+REST access:
+
+```java
+@GetMapping
+```
+
+EndPoint:
+
+```
+/task-lists-user/{id}/{login}
+```
+
+Header:
+
+```java
+null
+```
+
+Body Requireds:
+
+```Json
+null
+```
+
+Return OK:
+
+```java
+HttpStatus.ok() "200"
+```
+
+Body response:
+
+```json
+[
+  [
+     {
+        "id": 12,
+        "taskName": "Alex",
+        "dataCreate": "2022-04-24",
+        "dataEnd": null,
+        "description": "JORGE",
+        "cancel": null,
+        "photo": null,
+        "photoContentType": null,
+        "puntuacion": null,
+        "taskList": {
+            "id": 1,
+            "nameList": "New"
+        },
+        "userData": {
+            "id": 1,
+            "photo": "i..",
+            "photoContentType": "image/png",
+            "phone": "735-497-3310",
+            "premium": false,
+            "birthDate": "2022-01-20",
+            "addDate": "2022-01-21"
+        },
+        "userAssigneds": [
+            {
+                "id": 1,
+                "photo": "iVBO...",
+                "photoContentType": "image/png",
+                "phone": "735-497-3310",
+                "premium": false,
+                "birthDate": "2022-01-20",
+                "addDate": "2022-01-21"
+            }
+    ]
+}
+    ]
+} ...
+```
+
+Return Bad Request:
+
+```java
+HttpStatus.created() "400" //*por definir
+```
+
 </details>
