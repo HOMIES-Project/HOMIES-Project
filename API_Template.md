@@ -544,7 +544,13 @@ text: Encapsulated in JSON format
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ USERS/EDIT USER DATA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -->
 <details>
-<summary>Edit user data</summary>
+<summary>Edit user data✨</summary>
+
+NEW:✨
+```text
+- ❗ When the user changes their email when editing their user, the user will be deactivated, so they will lose their login, and they will be sent the activation email again. 
+  - ❗❗❗❗❗ This should be pointed out to the user so that they do not enter the wrong email address and lose their account.
+```
 
 REST access:
 ```java
@@ -1348,9 +1354,134 @@ HttpStatus.Bad_Request() "405"
 
 Info fields:
 ```text
-idAdminGroup => userAdmin's id, owner of group login => administrator's userName
-of new group (it is possible to change it to use the id, ¿yes?) idGroup =>
-group's id
+idAdminGroup => userAdmin's id, owner of group 
+login => administrator's userName of new group (it is possible to change it to use the id, ¿yes?) 
+idGroup => group's id
+```
+</details>
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/EDITE GROUP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
+<details>
+<summary>Edit group ✨</summary>
+
+❗ It can only be exercised by the owner of the group
+
+REST access:
+```java
+@PutMapping
+```
+
+EndPoint:
+```
+/groups/x
+```
+
+Header:
+```java
+null
+```
+
+Body Requireds:
+```json
+{
+  "groupName": "newNameGroup",
+  "groupRelation": "newDescriptionGroup"
+}
+```
+
+Return OK:
+```java
+HttpStatus.Ok() "200"
+```
+
+Body Response:
+```json
+{
+    "id": 45,
+    "groupKey": "IoLBKbR7sI2YTimCsbQq",
+    "groupName": "nombre editado2",
+    "groupRelationName": "editando la descripción del grupo 2",
+    "addGroupDate": "2022-04-24",
+    "userAdmin": {
+        "id": 8,
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlA...",
+        "photoContentType": "image/png",
+        "phone": "999888777",
+        "premium": false,
+        "birthDate": null,
+        "addDate": "2022-04-21",
+        "user": {
+            "id": 8,
+            "login": "yorch",
+            "firstName": "Jorge",
+            "lastName": "Agulló",
+            "email": "agullojorge2@hotmail.com",
+            "activated": true,
+            "langKey": "en",
+            "imageUrl": null,
+            "resetDate": null
+        }
+    },
+    "taskList": {
+        "id": 45,
+        "nameList": "TKLhomies1"
+    },
+    "spendingList": {
+        "id": 45,
+        "total": 0.0,
+        "nameSpendList": "SPL_homies1"
+    },
+    "shoppingList": {
+        "id": 45,
+        "total": 0.0,
+        "nameShopList": "SHLhomies1"
+    },
+    "settingsList": {
+        "id": 45,
+        "settingOne": false,
+        "settingTwo": false,
+        "settingThree": false,
+        "settingFour": false,
+        "settingFive": false,
+        "settingSix": false,
+        "settingSeven": false
+    },
+    "userData": [
+        {
+            "id": 2,
+            "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1...",
+            "photoContentType": "image/png",
+            "phone": "999888777",
+            "premium": false,
+            "birthDate": null,
+            "addDate": "2022-04-21",
+            "user": {
+                "id": 2,
+                "login": "user",
+                "firstName": "User",
+                "lastName": "User",
+                "email": "agullojorge@gmail.com",
+                "activated": true,
+                "langKey": "en",
+                "imageUrl": "",
+                "resetDate": null
+            }
+        }
+    ]
+}
+```
+
+Return ERROR:
+```java
+HttpStatus.Unauthorized() "401"
+HttpStatus.Bad_Request() "405"
+```
+
+Info fields:
+```text
+groupName => The new name of the group (NonRequire, minLen = 3, maxLen = 50)
+groupRelation => The new description of the group (NonRequire, minLen = 3, maxLen = 100)
 ```
 </details>
 </details>
