@@ -1447,44 +1447,33 @@ REST access:
 EndPoint:
 
 ```
-/groups
+/groups/x
 ```
 
 Header:
-
 ```java
 null
 ```
 
 Body Requireds:
-
-```json
-{
-  "idAdminGroup": "8",
-  "login": "newUserName",
-  "idGroup": "1"
-}
+```java
+null
 ```
 
 Return OK:
-
 ```java
 HttpStatus.NoContent() "204"
 ```
 
 Return ERROR:
-
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 
 Info fields:
-
 ```text
-idAdminGroup => userAdmin's id, owner of group 
-login => administrator's userName of new group (it is possible to change it to use the id, ¿yes?) 
-idGroup => group's id
+x => group`s id to delete
 ```
 </details>
 <!--
@@ -2133,94 +2122,6 @@ Body response:
             "photoContentType": null,
             "puntuacion": null
         },
-        {
-            "id": 13,
-            "taskName": "Alesx",
-            "dataCreate": "2022-04-24",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 14,
-            "taskName": "Alesx",
-            "dataCreate": "2022-04-24",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 15,
-            "taskName": "Alesxs",
-            "dataCreate": "2022-04-24",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 16,
-            "taskName": "Alesxs",
-            "dataCreate": "2022-04-24",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 17,
-            "taskName": "Alesxss",
-            "dataCreate": "2022-04-25",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 18,
-            "taskName": "Alesxss",
-            "dataCreate": "2022-04-25",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 19,
-            "taskName": "Alesxsss",
-            "dataCreate": "2022-04-25",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 20,
-            "taskName": "Alesxsss",
-            "dataCreate": "2022-04-25",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        }
     ]
 }
     ]
@@ -2358,7 +2259,6 @@ HttpStatus.ok() "200"
 ```
 
 Body response:
-
 ```json
 [
   [
@@ -2395,95 +2295,7 @@ Body response:
             "photoContentType": null,
             "puntuacion": null
         },
-        {
-            "id": 13,
-            "taskName": "Alesx",
-            "dataCreate": "2022-04-24",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 14,
-            "taskName": "Alesx",
-            "dataCreate": "2022-04-24",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 15,
-            "taskName": "Alesxs",
-            "dataCreate": "2022-04-24",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 16,
-            "taskName": "Alesxs",
-            "dataCreate": "2022-04-24",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 17,
-            "taskName": "Alesxss",
-            "dataCreate": "2022-04-25",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 18,
-            "taskName": "Alesxss",
-            "dataCreate": "2022-04-25",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 19,
-            "taskName": "Alesxsss",
-            "dataCreate": "2022-04-25",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        },
-        {
-            "id": 20,
-            "taskName": "Alesxsss",
-            "dataCreate": "2022-04-25",
-            "dataEnd": null,
-            "description": "JORGE",
-            "cancel": null,
-            "photo": null,
-            "photoContentType": null,
-            "puntuacion": null
-        }
-    ]
+  ]
 }
     ]
 } ...
