@@ -2190,3 +2190,262 @@ HttpStatus.created() "400" //*por definir
 ```
 
 </details>
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GET/ONETASK @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
+<details>
+<summary>Get/ One task ✨</summary>
+
+REST access:
+
+```java
+@GetMapping
+```
+
+EndPoint:
+
+```
+/task-lists/{id}
+```
+
+Header:
+
+```java
+null
+```
+
+Body Requireds:
+
+```Json
+null
+```
+
+Return OK:
+
+```java
+HttpStatus.ok() "200"
+```
+
+Body response:
+
+```json
+[
+  [
+    {
+    "id": 1,
+    "nameList": "New",
+    "group": {
+        "id": 1,
+        "groupKey": "Tunisian payment",
+        "groupName": "South",
+        "groupRelationName": "explicit white",
+        "addGroupDate": "2022-03-07"
+    },
+    "tasks": [
+        {
+            "id": 12,
+            "taskName": "Alex",
+            "dataCreate": "2022-04-24",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 11,
+            "taskName": "Alex",
+            "dataCreate": "2022-04-24",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 13,
+            "taskName": "Alesx",
+            "dataCreate": "2022-04-24",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 14,
+            "taskName": "Alesx",
+            "dataCreate": "2022-04-24",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 15,
+            "taskName": "Alesxs",
+            "dataCreate": "2022-04-24",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 16,
+            "taskName": "Alesxs",
+            "dataCreate": "2022-04-24",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 17,
+            "taskName": "Alesxss",
+            "dataCreate": "2022-04-25",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 18,
+            "taskName": "Alesxss",
+            "dataCreate": "2022-04-25",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 19,
+            "taskName": "Alesxsss",
+            "dataCreate": "2022-04-25",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        },
+        {
+            "id": 20,
+            "taskName": "Alesxsss",
+            "dataCreate": "2022-04-25",
+            "dataEnd": null,
+            "description": "JORGE",
+            "cancel": null,
+            "photo": null,
+            "photoContentType": null,
+            "puntuacion": null
+        }
+    ]
+}
+    ]
+} ...
+```
+
+Return Bad Request:
+
+```java
+HttpStatus.created() "400" //*por definir
+```
+
+</details>
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Put-UpdateTask@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
+<details>
+<summary>Update Task✨</summary>
+
+REST access:
+
+```java
+@PostMapping
+```
+
+EndPoint:
+
+```
+/tasks/update-tasks
+```
+
+Header:
+
+```java
+null
+```
+
+Body Requireds:
+
+```Json
+{
+    "idTask": 22,
+    "idGroup": 11,
+    "login": "admin",
+    "taskName": "Jorgeeasss",
+    "description": "YA tu sabessasdsaaasasda"
+}
+```
+
+Return OK:
+
+```java
+HttpStatus.ok() "200"
+```
+
+Body response:
+
+```json
+[
+  [
+     {
+    "id": 22,
+    "taskName": "Jorgeeasss",
+    "dataCreate": "2022-04-25",
+    "dataEnd": null,
+    "description": "YA tu sabessasdsaaasasda",
+    "cancel": null,
+    "photo": null,
+    "photoContentType": null,
+    "puntuacion": null,
+    "taskList": {
+        "id": 11,
+        "nameList": "TKLhomies22"
+    },
+    "userData": {
+        "id": 1,
+        "photo": "iVBOR..",
+        "photoContentType": "image/png",
+        "phone": "735-497-3310",
+        "premium": false,
+        "birthDate": "2022-01-20",
+        "addDate": "2022-01-21"
+    },
+    "userAssigneds": []
+}
+    ]
+    ]
+} ...
+```
+
+Return Bad Request:
+
+```java
+HttpStatus.created() "400" //*por definir
+```
+
+</details>
