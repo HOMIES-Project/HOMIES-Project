@@ -2317,7 +2317,7 @@ HttpStatus.created() "400" //*por definir
 REST access:
 
 ```java
-@PostMapping
+@PutMapping
 ```
 
 EndPoint:
