@@ -616,8 +616,9 @@ text: Encapsulated in JSON format
 <summary>Edit user data✨</summary>
 
 NEW:✨
+
 ```text
-- ❗ When the user changes their email when editing their user, the user will be deactivated, so they will lose their login, and they will be sent the activation email again. 
+- ❗ When the user changes their email when editing their user, the user will be deactivated, so they will lose their login, and they will be sent the activation email again.
   - ❗❗❗❗❗ This should be pointed out to the user so that they do not enter the wrong email address and lose their account.
 ```
 
@@ -1451,30 +1452,36 @@ EndPoint:
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```java
 null
 ```
 
 Return OK:
+
 ```java
 HttpStatus.NoContent() "204"
 ```
 
 Return ERROR:
+
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 
 Info fields:
+
 ```text
 x => group`s id to delete
 ```
+
 </details>
 <!--
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ GROUPS/EDITE GROUP @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1485,21 +1492,25 @@ x => group`s id to delete
 ❗ It can only be exercised by the owner of the group
 
 REST access:
+
 ```java
 @PutMapping
 ```
 
 EndPoint:
+
 ```
 /groups/x
 ```
 
 Header:
+
 ```java
 null
 ```
 
 Body Requireds:
+
 ```json
 {
   "groupName": "newNameGroup",
@@ -1508,94 +1519,98 @@ Body Requireds:
 ```
 
 Return OK:
+
 ```java
 HttpStatus.Ok() "200"
 ```
 
 Body Response:
+
 ```json
 {
+  "id": 45,
+  "groupKey": "IoLBKbR7sI2YTimCsbQq",
+  "groupName": "nombre editado2",
+  "groupRelationName": "editando la descripción del grupo 2",
+  "addGroupDate": "2022-04-24",
+  "userAdmin": {
+    "id": 8,
+    "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlA...",
+    "photoContentType": "image/png",
+    "phone": "999888777",
+    "premium": false,
+    "birthDate": null,
+    "addDate": "2022-04-21",
+    "user": {
+      "id": 8,
+      "login": "yorch",
+      "firstName": "Jorge",
+      "lastName": "Agulló",
+      "email": "agullojorge2@hotmail.com",
+      "activated": true,
+      "langKey": "en",
+      "imageUrl": null,
+      "resetDate": null
+    }
+  },
+  "taskList": {
     "id": 45,
-    "groupKey": "IoLBKbR7sI2YTimCsbQq",
-    "groupName": "nombre editado2",
-    "groupRelationName": "editando la descripción del grupo 2",
-    "addGroupDate": "2022-04-24",
-    "userAdmin": {
-        "id": 8,
-        "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlA...",
-        "photoContentType": "image/png",
-        "phone": "999888777",
-        "premium": false,
-        "birthDate": null,
-        "addDate": "2022-04-21",
-        "user": {
-            "id": 8,
-            "login": "yorch",
-            "firstName": "Jorge",
-            "lastName": "Agulló",
-            "email": "agullojorge2@hotmail.com",
-            "activated": true,
-            "langKey": "en",
-            "imageUrl": null,
-            "resetDate": null
-        }
-    },
-    "taskList": {
-        "id": 45,
-        "nameList": "TKLhomies1"
-    },
-    "spendingList": {
-        "id": 45,
-        "total": 0.0,
-        "nameSpendList": "SPL_homies1"
-    },
-    "shoppingList": {
-        "id": 45,
-        "total": 0.0,
-        "nameShopList": "SHLhomies1"
-    },
-    "settingsList": {
-        "id": 45,
-        "settingOne": false,
-        "settingTwo": false,
-        "settingThree": false,
-        "settingFour": false,
-        "settingFive": false,
-        "settingSix": false,
-        "settingSeven": false
-    },
-    "userData": [
-        {
-            "id": 2,
-            "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1...",
-            "photoContentType": "image/png",
-            "phone": "999888777",
-            "premium": false,
-            "birthDate": null,
-            "addDate": "2022-04-21",
-            "user": {
-                "id": 2,
-                "login": "user",
-                "firstName": "User",
-                "lastName": "User",
-                "email": "agullojorge@gmail.com",
-                "activated": true,
-                "langKey": "en",
-                "imageUrl": "",
-                "resetDate": null
-            }
-        }
-    ]
+    "nameList": "TKLhomies1"
+  },
+  "spendingList": {
+    "id": 45,
+    "total": 0.0,
+    "nameSpendList": "SPL_homies1"
+  },
+  "shoppingList": {
+    "id": 45,
+    "total": 0.0,
+    "nameShopList": "SHLhomies1"
+  },
+  "settingsList": {
+    "id": 45,
+    "settingOne": false,
+    "settingTwo": false,
+    "settingThree": false,
+    "settingFour": false,
+    "settingFive": false,
+    "settingSix": false,
+    "settingSeven": false
+  },
+  "userData": [
+    {
+      "id": 2,
+      "photo": "iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1...",
+      "photoContentType": "image/png",
+      "phone": "999888777",
+      "premium": false,
+      "birthDate": null,
+      "addDate": "2022-04-21",
+      "user": {
+        "id": 2,
+        "login": "user",
+        "firstName": "User",
+        "lastName": "User",
+        "email": "agullojorge@gmail.com",
+        "activated": true,
+        "langKey": "en",
+        "imageUrl": "",
+        "resetDate": null
+      }
+    }
+  ]
 }
 ```
 
 Return ERROR:
+
 ```java
 HttpStatus.Unauthorized() "401"
 HttpStatus.Bad_Request() "405"
 ```
 
 Info fields:
+
 ```text
 groupName => The new name of the group (NonRequire, minLen = 3, maxLen = 50)
 groupRelation => The new description of the group (NonRequire, minLen = 3, maxLen = 100)
@@ -2171,6 +2186,7 @@ HttpStatus.ok() "200"
 ```
 
 Body response:
+
 ```json
 [
   [
@@ -2295,6 +2311,208 @@ Body response:
     ]
     ]
 } ...
+```
+
+Return Bad Request:
+
+```java
+HttpStatus.created() "400" //*por definir
+```
+
+</details>
+</details>
+<br>
+<!--
+  ################################ Product ################################
+-->
+<details>
+<summary><strong>Product Features✨</strong></summary>
+<br>
+
+<!--
+  ################################ Product ENTITY ################################
+-->
+<details>
+<summary>Entity</summary>
+
+Info variables:
+
+```text
+Response:
+id => id Product
+name => name Product
+photo => photo Product
+units => units Product
+typeUnit => type Unit
+note => note Product
+dataCreated => date that is created by default when creating a product
+shoppingDate => date that is created by default put that a product has been purchased
+purchased => section to cross a product off the list when buying
+user_created => User who creates a product
+
+```
+
+</details>
+
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ TASK/CREATE NEW Product @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
+<details>
+<summary>Create new Product ✨</summary>
+
+REST access:
+
+```java
+@PostMapping
+```
+
+EndPoint:
+
+```
+/products
+```
+
+Header:
+
+```java
+null
+```
+
+Body Requireds:
+
+```json
+{
+  "idGroup": 15,
+  "idUserData": "1",
+  "nameProduct": "patatas",
+  "units": "2",
+  "typeUnit": "kg"
+}
+```
+
+Return OK:
+
+```java
+HttpStatus.created() "201"
+```
+
+Body response:
+
+```json
+{
+  "id": 14,
+  "name": "patatas",
+  "price": null,
+  "photo": null,
+  "photoContentType": null,
+  "units": 2.0,
+  "typeUnit": "kg",
+  "note": null,
+  "dataCreated": null,
+  "shoppingDate": null,
+  "purchased": null,
+  "userCreated": null,
+  "userCreator": null,
+  "shoppingList": {
+    "id": 15,
+    "total": 0.0,
+    "nameShopList": "SHLPrueba 1"
+  }
+}
+```
+
+Return Bad Request:
+
+```java
+HttpStatus.created() "400" //*por definir
+```
+
+Info fields:
+
+```Text
+Request:
+user => userData.id (Require, Int) only need id of user login in app or web
+idGroup => It is generated only when the group is created
+taskName => (name = "task_name", length = 50, nullable = false)
+description => (name = "description", length = 100, nullable = false)
+
+Response:
+id => id's group (Autoasigned)
+groupKey => key/password group (Autoasigned)
+groupName => name of group
+groupRelation => reason why the group exist
+userData => extension of "user" for save extra data of users
+userAdmin => user who created the group
+taskList => group's task list (Autoasigned)
+```
+
+</details>
+<!--
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Put-UpdateProduct @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
+<details>
+<summary>Update Product✨</summary>
+
+REST access:
+
+```java
+@PutMapping
+```
+
+EndPoint:
+
+```
+/products/update-products
+```
+
+Header:
+
+```java
+null
+```
+
+Body Requireds:
+
+```Json
+{
+    "login": "user",
+    "idGroup": "15",
+    "idProduct": "14",
+    "typeUnit": "Cajas",
+    "name": "Patatas con sad",
+    "units": "5"
+}
+```
+
+Return OK:
+
+```java
+HttpStatus.ok() "200"
+```
+
+Body response:
+
+```json
+{
+  "id": 14,
+  "name": "Patatas con sad",
+  "price": null,
+  "photo": null,
+  "photoContentType": null,
+  "units": 5.0,
+  "typeUnit": "Cajas",
+  "note": null,
+  "dataCreated": null,
+  "shoppingDate": null,
+  "purchased": null,
+  "userCreated": null,
+  "userCreator": null,
+  "shoppingList": {
+    "id": 15,
+    "total": 0.0,
+    "nameShopList": "SHLPrueba 1"
+  }
+}
 ```
 
 Return Bad Request:
